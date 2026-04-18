@@ -134,3 +134,11 @@ industry.add_industry_layout(
         (6, 0, "oil_wells_spritelayout_pump"),
     ],
 )
+
+industry.enable_in_economy(
+    "OIL_TOWN",
+    prod_cargo_types_with_multipliers=[
+        ("OIL_", 28),
+        ("NGAS", 4),
+    ],
+)

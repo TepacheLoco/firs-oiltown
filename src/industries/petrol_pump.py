@@ -71,3 +71,4 @@ industry.add_industry_layout(
         (1, 0, "petrol_pump_spritelayout_2"),
     ],
 )
+

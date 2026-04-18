@@ -243,3 +243,7 @@ industry.add_industry_layout(
         (1, 4, "coal_mine_spritelayout_5"),
     ],
 )
+
+industry.enable_in_economy(
+    "OIL_TOWN",
+)

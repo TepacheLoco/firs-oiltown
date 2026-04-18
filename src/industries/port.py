@@ -741,3 +741,4 @@ industry.add_industry_jetty_layout(
         (3, 7, "spritelayout_null_water"),
     ],
 )
+

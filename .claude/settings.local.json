@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 src/render_lang.py '' '' \"grf\")",
+      "Bash(python3 src/render_nml.py '' '')",
+      "Bash(python3 src/render_graphics.py '' '')",
+      "Bash(/c/Users/Admin/AppData/Local/Python/pythoncore-3.14-64/Scripts/nmlc.exe -c -l generated/lang --verbosity=4 --no-optimisation-warning --list-unused-strings --grf=generated/firs.grf generated/firs.nml)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)"
+    ]
+  }
+}

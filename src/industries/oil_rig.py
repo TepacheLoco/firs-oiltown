@@ -113,3 +113,12 @@ industry.add_industry_layout(
         (9, 10, "spritelayout_null_water"),
     ],
 )
+
+industry.enable_in_economy(
+    "OIL_TOWN",
+    prod_cargo_types_with_multipliers=[
+        ("OIL_", 29),
+        ("PASS", 4),
+        ("NGAS", 3),
+    ],
+)

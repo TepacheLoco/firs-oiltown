@@ -63,6 +63,9 @@ base = "In A Hot Country"
 [STR_PARAM_VALUE_ECONOMIES_STEELTOWN]
 base = "Steeltown"
 
+[STR_PARAM_VALUE_ECONOMIES_OIL_TOWN]
+base = "Oil Town"
+
 [STR_PARAM_NAME_OBJECTS]
 base = "FIRS landscaping objects"
 
@@ -240,8 +243,29 @@ base = "Milk"
 [STR_CARGO_NAME_MANGANESE]
 base = "Manganese"
 
+[STR_CARGO_NAME_CRUDE_OIL]
+base = "Crude Oil"
+
+[STR_CARGO_NAME_HEAVY_OIL]
+base = "Heavy Oil"
+
+[STR_CARGO_NAME_LNG]
+base = "LNG"
+
+[STR_CARGO_NAME_LPG]
+base = "LPG"
+
+[STR_CARGO_NAME_LIGHT_OIL]
+base = "Light Oil"
+
 [STR_CARGO_NAME_NAPHTHA]
 base = "Naphtha"
+
+[STR_CARGO_NAME_RAW_GAS]
+base = "Raw Gas"
+
+[STR_CARGO_NAME_REFINERY_GAS]
+base = "Refinery Gas"
 
 [STR_CARGO_NAME_NICKEL]
 base = "Nickel"
@@ -531,8 +555,29 @@ base = "{VOLUME} of methanol"
 [STR_CARGO_UNIT_MILK]
 base = "{VOLUME} of milk"
 
+[STR_CARGO_UNIT_CRUDE_OIL]
+base = "{VOLUME} of crude oil"
+
+[STR_CARGO_UNIT_HEAVY_OIL]
+base = "{VOLUME} of heavy oil"
+
+[STR_CARGO_UNIT_LNG]
+base = "{VOLUME} of LNG"
+
+[STR_CARGO_UNIT_LPG]
+base = "{VOLUME} of LPG"
+
+[STR_CARGO_UNIT_LIGHT_OIL]
+base = "{VOLUME} of light oil"
+
 [STR_CARGO_UNIT_NAPHTHA]
 base = "{VOLUME} of naphtha"
+
+[STR_CARGO_UNIT_RAW_GAS]
+base = "{VOLUME} of raw gas"
+
+[STR_CARGO_UNIT_REFINERY_GAS]
+base = "{VOLUME} of refinery gas"
 
 [STR_CARGO_UNIT_NICKEL]
 base = "{WEIGHT} of nickel"
@@ -831,8 +876,29 @@ base = "{TINYFONT}ML"
 [STR_CID_MILK]
 base = "{TINYFONT}MK"
 
+[STR_CID_CRUDE_OIL]
+base = "{TINYFONT}CRD"
+
+[STR_CID_HEAVY_OIL]
+base = "{TINYFONT}HVO"
+
+[STR_CID_LNG]
+base = "{TINYFONT}LNG"
+
+[STR_CID_LPG]
+base = "{TINYFONT}LPG"
+
+[STR_CID_LIGHT_OIL]
+base = "{TINYFONT}LTO"
+
 [STR_CID_NAPHTHA]
 base = "{TINYFONT}NA"
+
+[STR_CID_RAW_GAS]
+base = "{TINYFONT}GAS"
+
+[STR_CID_REFINERY_GAS]
+base = "{TINYFONT}RGS"
 
 [STR_CID_NICKEL]
 base = "{TINYFONT}NK"
@@ -1125,6 +1191,12 @@ base = "Engine Plant"
 [STR_IND_FARM]
 base = "Farm"
 
+[STR_IND_GAS_PROCESSING_PLANT]
+base = "Gas Processing Plant"
+
+[STR_STATION_GAS_PROCESSING_PLANT]
+base = "Gas Processing Plant"
+
 [STR_IND_FERROCHROME_SMELTER]
 base = "Ferrochrome Smelter"
 
@@ -1226,6 +1298,18 @@ base = "Plate Mill"
 
 [STR_IND_PLASTICS_PLANT]
 base = "PVC Plant"
+
+[STR_IND_NATURAL_GAS_WELL]
+base = "Natural Gas Well"
+
+[STR_STATION_NATURAL_GAS_WELL]
+base = "Natural Gas Well"
+
+[STR_IND_OIL_TRADING_PORT]
+base = "Oil Trading Port"
+
+[STR_STATION_OIL_TRADING_PORT]
+base = "Oil Trading Port"
 
 [STR_IND_PORT]
 base = "Port"

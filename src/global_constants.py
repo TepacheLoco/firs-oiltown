@@ -23,7 +23,7 @@ industry_numeric_ids = dict(
     phosphate_mine=14,
     oil_wells=15,
     oil_rig=16,
-    ###BLTC###oil_refinery = 17,
+    oil_refinery = 17,
     ###BLTC###plastics_plant = 18,
     fish_farm=19,
     dredging_site=20,
@@ -128,12 +128,21 @@ industry_numeric_ids = dict(
     concrete_plant=119,
     elastomer_products_plant=120,
     power_systems_factory=121,
+    oil_trading_port=122,
+    natural_gas_well=123,
+    gas_processing_plant=124,
     # 127 left free for GarryG
 )
 # Definition of industry tile numeric IDs
 # tiles 0-xxx currently vacant
 tile_numeric_ids = dict(
     # 0 left free for GarryG
+    oil_trading_port_tile_1=1,
+    oil_trading_port_tile_2=2,
+    oil_trading_port_tile_3=3,
+    natural_gas_well_tile_1=4,
+    natural_gas_well_tile_2=5,
+    gas_processing_plant_tile_1=6,
     nitrate_mine_tile_2=48,
     copper_smelter_tile_2=49,
     copper_mine_tile_2=50,
