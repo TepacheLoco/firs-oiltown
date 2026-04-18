@@ -49,6 +49,18 @@ industry.enable_in_economy(
     ],
 )
 
+industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargos_with_input_ratios=[
+        ("ETHY", 3),
+        ("SULP", 3),
+        ("WATR", 2),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("CHEM", 8),
+    ],
+)
+
 industry.add_tile(
     id="chemical_plant_tile_1",
     location_checks=TileLocationChecks(

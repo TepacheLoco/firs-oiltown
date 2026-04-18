@@ -22,7 +22,7 @@ industry = IndustryPrimaryPort(
 
 industry.enable_in_economy(
     "OIL_TOWN",
-    accept_cargo_types=["OIL_", "LOIL", "HOIL"],
+    accept_cargo_types=["OIL_", "LOIL", "HOIL", "PETR", "LNG_", "LPG_"],
     prod_cargo_types_with_multipliers=[],
 )
 

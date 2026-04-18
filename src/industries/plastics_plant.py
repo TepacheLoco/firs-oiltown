@@ -4,7 +4,7 @@ industry = IndustrySecondary(
     id="plastics_plant",
     accept_cargos_with_input_ratios=[
         ("CHLO", 4),
-        ("C2H4", 4),
+        ("ETHY", 4),
     ],
     prod_cargo_types_with_output_ratios=[
         ("PLAS", 3),
@@ -23,6 +23,16 @@ industry = IndustrySecondary(
     animated_tiles_fixed=False,
 )
 
+industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargos_with_input_ratios=[
+        ("ETHY", 5),
+        ("CHEM", 3),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("PLAS", 8),
+    ],
+)
 
 industry.add_tile(
     id="plastics_plant_tile_1",
@@ -62,6 +72,7 @@ spriteset_9 = industry.add_spriteset(
 
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_1",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_1],
@@ -69,6 +80,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_2",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_2],
@@ -76,6 +88,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_3",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_3],
@@ -83,6 +96,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_4",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_4],
@@ -90,6 +104,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_5",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_5],
@@ -97,6 +112,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_6",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_6],
@@ -104,6 +120,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_7",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_7],
@@ -111,6 +128,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_8",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_8],
@@ -118,6 +136,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_9",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_9],
@@ -125,6 +144,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="plastics_plant_spritelayout_10",
+    tile="plastics_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[],

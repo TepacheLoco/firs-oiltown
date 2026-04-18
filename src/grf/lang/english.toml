@@ -135,6 +135,9 @@ base = "Ammonia"
 [STR_CARGO_NAME_BEANS]
 base = "Beans"
 
+[STR_CARGO_NAME_BITUMEN]
+base = "Bitumen"
+
 [STR_CARGO_NAME_BUILDING_MATERIALS]
 base = "Building Materials"
 
@@ -174,6 +177,9 @@ base = "Coal Tar"
 [STR_CARGO_NAME_COKE]
 base = "Coke"
 
+[STR_CARGO_NAME_CONDENSATE]
+base = "Condensate"
+
 [STR_CARGO_NAME_CONCRETE_PRODUCTS]
 base = "Concrete Products"
 
@@ -191,6 +197,9 @@ base = "Electrical Parts"
 
 [STR_CARGO_NAME_ENGINEERING_SUPPLIES]
 base = "Engineering Supplies"
+
+[STR_CARGO_NAME_ETHYLENE]
+base = "Ethylene"
 
 [STR_CARGO_NAME_EXPLOSIVES]
 base = "Explosives"
@@ -213,6 +222,9 @@ base = "Food Additives"
 [STR_CARGO_NAME_FORGINGS_AND_CASTINGS]
 base = "Forgings & Castings"
 
+[STR_CARGO_NAME_FRACKING_FLUID]
+base = "Fracking Fluid"
+
 [STR_CARGO_NAME_FRUITS]
 base = "Fruit"
 
@@ -230,6 +242,9 @@ base = "Limestone"
 
 [STR_CARGO_NAME_LOGS]
 base = "Logs"
+
+[STR_CARGO_NAME_LUBRICANTS]
+base = "Lubricants"
 
 [STR_CARGO_NAME_LYE]
 base = "Sodium Hydroxide"
@@ -390,6 +405,9 @@ base = "Textiles"
 [STR_CARGO_NAME_TIMBER]
 base = "Timber"
 
+[STR_CARGO_NAME_TREATED_WATER]
+base = "Treated Water"
+
 [STR_CARGO_NAME_TIN]
 base = "Tin"
 
@@ -447,6 +465,9 @@ base = "{VOLUME} of ammonia"
 [STR_CARGO_UNIT_BEANS]
 base = "{WEIGHT} of beans"
 
+[STR_CARGO_UNIT_BITUMEN]
+base = "{WEIGHT} of bitumen"
+
 [STR_CARGO_UNIT_BUILDING_MATERIALS]
 base = "{WEIGHT} of building materials"
 
@@ -486,6 +507,9 @@ base = "{SIGNED_WORD} sack{P 0 \"\" s} of coffee"
 [STR_CARGO_UNIT_COKE]
 base = "{WEIGHT} of coke"
 
+[STR_CARGO_UNIT_CONDENSATE]
+base = "{VOLUME} of condensate"
+
 [STR_CARGO_UNIT_CONCRETE_PRODUCTS]
 base = "{WEIGHT} of concrete products"
 
@@ -503,6 +527,9 @@ base = "{WEIGHT} of electrical parts"
 
 [STR_CARGO_UNIT_ENGINEERING_SUPPLIES]
 base = "{SIGNED_WORD} crate{P 0 \"\" s} of engineering supplies"
+
+[STR_CARGO_UNIT_ETHYLENE]
+base = "{VOLUME} of ethylene"
 
 [STR_CARGO_UNIT_EXPLOSIVES]
 base = "{SIGNED_WORD} crate{P 0 \"\" s} of explosives"
@@ -525,6 +552,9 @@ base = "{WEIGHT} of fish"
 [STR_CARGO_UNIT_FMSP]
 base = "{SIGNED_WORD} crate{P 0 \"\" s} of farm supplies"
 
+[STR_CARGO_UNIT_FRACKING_FLUID]
+base = "{VOLUME} of fracking fluid"
+
 [STR_CARGO_UNIT_FRUITS]
 base = "{WEIGHT} of fruit"
 
@@ -542,6 +572,9 @@ base = "{WEIGHT} of limestone"
 
 [STR_CARGO_UNIT_LOGS]
 base = "{WEIGHT} of logs"
+
+[STR_CARGO_UNIT_LUBRICANTS]
+base = "{VOLUME} of lubricants"
 
 [STR_CARGO_UNIT_LYE]
 base = "{VOLUME} of sodium hydroxide"
@@ -702,6 +735,9 @@ base = "{WEIGHT} of textiles"
 [STR_CARGO_UNIT_TIMBER]
 base = "{WEIGHT} of timber"
 
+[STR_CARGO_UNIT_TREATED_WATER]
+base = "{VOLUME} of treated water"
+
 [STR_CARGO_UNIT_TIN]
 base = "{WEIGHT} of tin"
 
@@ -762,6 +798,9 @@ base = "{TINYFONT}AO"
 [STR_CID_BEANS]
 base = "{TINYFONT}BN"
 
+[STR_CID_BITUMEN]
+base = "{TINYFONT}BT"
+
 [STR_CID_BUILDING_MATERIALS]
 base = "{TINYFONT}BM"
 
@@ -800,6 +839,9 @@ base = "{TINYFONT}CT"
 
 [STR_CID_COKE]
 base = "{TINYFONT}CK"
+
+[STR_CID_CONDENSATE]
+base = "{TINYFONT}CD"
 
 [STR_CID_CONCRETE_PRODUCTS]
 base = "{TINYFONT}CP"
@@ -843,6 +885,9 @@ base = "{TINYFONT}FV"
 [STR_CID_FORGINGS_AND_CASTINGS]
 base = "{TINYFONT}FO"
 
+[STR_CID_FRACKING_FLUID]
+base = "{TINYFONT}FF"
+
 [STR_CID_FURNITURE]
 base = "{TINYFONT}FU"
 
@@ -860,6 +905,9 @@ base = "{TINYFONT}LS"
 
 [STR_CID_LOGS]
 base = "{TINYFONT}LG"
+
+[STR_CID_LUBRICANTS]
+base = "{TINYFONT}LB"
 
 [STR_CID_LYE]
 base = "{TINYFONT}SY"
@@ -1026,6 +1074,9 @@ base = "{TINYFONT}TX"
 [STR_CID_TIMBER]
 base = "{TINYFONT}LU"
 
+[STR_CID_TREATED_WATER]
+base = "{TINYFONT}WA"
+
 [STR_CID_TIN]
 base = "{TINYFONT}TI"
 
@@ -1113,6 +1164,12 @@ base = "Section & Bar Mill"
 [STR_IND_BASIC_OXYGEN_FURNACE]
 base = "Basic Oxygen Furnace"
 
+[STR_IND_BITUMEN_PLANT]
+base = "Bitumen Plant"
+
+[STR_STATION_BITUMEN_PLANT]
+base = "Bitumen Plant"
+
 [STR_IND_BLAST_FURNACE]
 base = "Blast Furnace"
 
@@ -1158,6 +1215,15 @@ base = "Coffee Estate"
 [STR_IND_COKE_OVEN]
 base = "Coke Oven"
 
+[STR_IND_COAL_POWER_STATION]
+base = "Coal Fired Power Station"
+
+[STR_IND_COKING_PLANT]
+base = "Coking Plant"
+
+[STR_STATION_COKING_PLANT]
+base = "Coking Plant"
+
 [STR_IND_CONCRETE_PLANT]
 base = "Concrete Plant"
 
@@ -1176,6 +1242,12 @@ base = "Dairy"
 [STR_IND_DAIRY_FARM]
 base = "Dairy Farm"
 
+[STR_IND_DESALINATION_PLANT]
+base = "Desalination Plant"
+
+[STR_STATION_DESALINATION_PLANT]
+base = "Desalination Plant"
+
 [STR_IND_DREDGING_SITE]
 base = "Dredging Site"
 
@@ -1188,8 +1260,23 @@ base = "Electric Arc Furnace"
 [STR_IND_ENGINE_PLANT]
 base = "Engine Plant"
 
+[STR_IND_EXPORT_TERMINAL]
+base = "Export Terminal"
+
+[STR_STATION_EXPORT_TERMINAL]
+base = "Export Terminal"
+
 [STR_IND_FARM]
 base = "Farm"
+
+[STR_IND_GAS_PIPELINE_TERMINUS]
+base = "Pipeline Terminus"
+
+[STR_STATION_GAS_PIPELINE_TERMINUS]
+base = "Pipeline Terminus"
+
+[STR_IND_GAS_POWER_STATION]
+base = "Natural Gas Power Station"
 
 [STR_IND_GAS_PROCESSING_PLANT]
 base = "Gas Processing Plant"
@@ -1201,6 +1288,9 @@ base = "Gas Processing Plant"
 base = "Ferrochrome Smelter"
 
 [STR_IND_FERTILISER_PLANT]
+base = "Fertiliser Plant"
+
+[STR_STATION_FERTILISER_PLANT]
 base = "Fertiliser Plant"
 
 [STR_IND_FACTORY_1]
@@ -1229,6 +1319,18 @@ base = "Food Processing Plant"
 
 [STR_IND_FORGE_AND_FOUNDRY]
 base = "Steel Forge & Foundry"
+
+[STR_IND_FRACKING_FLUID_PLANT]
+base = "Fracking Fluid Plant"
+
+[STR_STATION_FRACKING_FLUID_PLANT]
+base = "Fracking Fluid Plant"
+
+[STR_IND_FRACKING_WELL]
+base = "Fracking Well"
+
+[STR_STATION_FRACKING_WELL]
+base = "Fracking Well"
 
 [STR_IND_FURNITURE_FACTORY]
 base = "Furniture Factory"
@@ -1266,6 +1368,12 @@ base = "Limestone Mine"
 [STR_IND_LIQUIDS_TERMINAL]
 base = "Liquids Terminal"
 
+[STR_IND_LUBRICANTS_PLANT]
+base = "Lubricants Plant"
+
+[STR_STATION_LUBRICANTS_PLANT]
+base = "Lubricants Plant"
+
 [STR_IND_MANGANESE_MINE]
 base = "Manganese Mine"
 
@@ -1280,6 +1388,18 @@ base = "Orchard & Piggery"
 
 [STR_IND_PEATLANDS]
 base = "Peatlands"
+
+[STR_IND_PETROCHEMICAL_PLANT]
+base = "Naphtha Cracking Plant"
+
+[STR_STATION_PETROCHEMICAL_PLANT]
+base = "Naphtha Cracking Plant"
+
+[STR_IND_PETROLEUM_FUELS_DEPOT]
+base = "Petroleum Fuels Depot"
+
+[STR_STATION_PETROLEUM_FUELS_DEPOT]
+base = "Petroleum Fuels Depot"
 
 [STR_IND_PETROLPUMP]
 base = "Petrol Station"
@@ -1297,13 +1417,16 @@ base = "Pipe Shop"
 base = "Plate Mill"
 
 [STR_IND_PLASTICS_PLANT]
-base = "PVC Plant"
+base = "Plastics Plant"
 
 [STR_IND_NATURAL_GAS_WELL]
 base = "Natural Gas Well"
 
 [STR_STATION_NATURAL_GAS_WELL]
 base = "Natural Gas Well"
+
+[STR_IND_OIL_POWER_STATION]
+base = "Oil Fired Power Station"
 
 [STR_IND_OIL_TRADING_PORT]
 base = "Oil Trading Port"
@@ -1366,7 +1489,7 @@ base = "Sugar Refinery"
 base = "Sulphuric Acid Plant"
 
 [STR_IND_SUPPLY_YARD]
-base = "Supply Yard"
+base = "Engineering Supplies Plant"
 
 [STR_IND_TEXTILE_MILL]
 base = "Textile Mill"
@@ -1394,6 +1517,12 @@ base = "Vineyard"
 
 [STR_IND_VEHICLE_DISTRIBUTOR]
 base = "Vehicle Distributor"
+
+[STR_IND_WATER_TOWER]
+base = "Water Tower"
+
+[STR_STATION_WATER_TOWER]
+base = "Water Tower"
 
 [STR_IND_WHARF]
 base = "Wharf"

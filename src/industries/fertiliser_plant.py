@@ -16,10 +16,22 @@ industry = IndustrySecondary(
     map_colour="191",
     colour_scheme_name="scheme_1_elton", # cabbage needs checked
     name="string(STR_IND_FERTILISER_PLANT)",
-    #nearby_station_name="string(STR_STATION_BRINE_WORKS)",
+    nearby_station_name="string(STR_STATION_FERTILISER_PLANT)",
     fund_cost_multiplier="170",
     sprites_complete=False,
     animated_tiles_fixed=False,
+)
+
+industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargos_with_input_ratios=[
+        ("LNG_", 3),
+        ("SULP", 3),
+        ("CHEM", 2),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("FERT", 8),
+    ],
 )
 
 industry.add_tile(
@@ -128,6 +140,7 @@ sprite_smoke_9 = industry.add_smoke_sprite(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_horizontal_tanks",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_horizontal_tanks],
@@ -135,6 +148,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_frac_columns",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_frac_columns],
@@ -142,6 +156,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_drop_tower_and_thin_chimney",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_drop_tower_and_thin_chimney],
@@ -150,6 +165,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_large_building",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_large_building],
@@ -158,6 +174,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_fat_chimney",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_fat_chimney],
@@ -166,6 +183,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_spherical_tanks",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_spherical_tanks],
@@ -173,6 +191,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_vertical_tanks",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_vertical_tanks],
@@ -180,6 +199,7 @@ industry.add_spritelayout(
 )
 industry.add_spritelayout(
     id="fertiliser_plant_spritelayout_barrels",
+    tile="fertiliser_plant_tile_1",
     ground_sprite=spriteset_ground,
     ground_overlay=None,
     building_sprites=[spriteset_barrels],
