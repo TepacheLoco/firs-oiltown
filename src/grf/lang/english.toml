@@ -4,16 +4,16 @@ plural = "0"
 
 [STR_GRF_NAME]
 # only translate the FIRS name if it's strictly necessary for the language
-base = "FIRS OilTown"
+base = "FIRS Forked: Oil Town"
 
 [STR_GRF_DESC]
-base = "{ORANGE}FIRS OilTown{}{BLACK}A fork of FIRS by TepacheLoco, attempting an oil-focused economy. {SILVER}Based on FIRS by andythenorth et al. {BLACK}License: GPL v2."
+base = "{ORANGE}FIRS Forked: Oil Town{}{BLACK}A fork of FIRS by TepacheLoco, attempting an oil-focused economy. {SILVER}Based on FIRS by andythenorth et al. {BLACK}License: GPL v2."
 
 [STR_PARAM_DESC_COAST_DISTANCE_MARINE_INDUSTRY]
 base = "Maximum distance of fishing grounds, oil rigs and dredging sites from the coast in tiles."
 
 [STR_PARAM_DESC_ECONOMIES]
-base = "Each economy provides a different combination of cargos and industries.{}{}For players who want simple gameplay, {SILVER}Basic {BLACK}economies contain fewer industries and cargos than other FIRS economies.{}{}The FIRS website provides detailed information about each economy."
+base = "OilTown is a single-economy fork of FIRS built around oil and petrochemistry.{}{}Extract crude oil, natural gas, coal and desalinated water, then refine and crack them into fuels, plastics, fertiliser and chemicals.{}{}Feed the chain back on itself: the {SILVER}engineering supplies {BLACK}you manufacture boost your extractive industries by ~40%.{}{}Deliver fracking fluid to fracking wells, pipe treated water to town water towers, and ship finished goods out via the coastal Trading Port for food production."
 
 [STR_PARAM_DESC_NO_OPENINGS]
 base = "By default, new industries will open during the game.{}{}If {SILVER}prevent opening {BLACK}is turned on industries will not open during game, and players will not be able to fund or prospect for industries."
@@ -1215,8 +1215,8 @@ base = "Coffee Estate"
 [STR_IND_COKE_OVEN]
 base = "Coke Oven"
 
-[STR_IND_COAL_POWER_STATION]
-base = "Coal Fired Power Station"
+[STR_IND_POWER_STATION]
+base = "Power Station"
 
 [STR_IND_COKING_PLANT]
 base = "Coking Plant"
@@ -1261,22 +1261,13 @@ base = "Electric Arc Furnace"
 base = "Engine Plant"
 
 [STR_IND_EXPORT_TERMINAL]
-base = "Export Terminal"
+base = "Trading Port"
 
 [STR_STATION_EXPORT_TERMINAL]
-base = "Export Terminal"
+base = "Trading Port"
 
 [STR_IND_FARM]
 base = "Farm"
-
-[STR_IND_GAS_PIPELINE_TERMINUS]
-base = "Pipeline Terminus"
-
-[STR_STATION_GAS_PIPELINE_TERMINUS]
-base = "Pipeline Terminus"
-
-[STR_IND_GAS_POWER_STATION]
-base = "Natural Gas Power Station"
 
 [STR_IND_GAS_PROCESSING_PLANT]
 base = "Gas Processing Plant"
@@ -1390,16 +1381,16 @@ base = "Orchard & Piggery"
 base = "Peatlands"
 
 [STR_IND_PETROCHEMICAL_PLANT]
-base = "Naphtha Cracking Plant"
+base = "Cracking Plant"
 
 [STR_STATION_PETROCHEMICAL_PLANT]
-base = "Naphtha Cracking Plant"
+base = "Cracking Plant"
 
 [STR_IND_PETROLEUM_FUELS_DEPOT]
-base = "Petroleum Fuels Depot"
+base = "Petroleum Refinery"
 
 [STR_STATION_PETROLEUM_FUELS_DEPOT]
-base = "Petroleum Fuels Depot"
+base = "Petroleum Refinery"
 
 [STR_IND_PETROLPUMP]
 base = "Petrol Station"
@@ -1425,14 +1416,11 @@ base = "Natural Gas Well"
 [STR_STATION_NATURAL_GAS_WELL]
 base = "Natural Gas Well"
 
-[STR_IND_OIL_POWER_STATION]
-base = "Oil Fired Power Station"
-
 [STR_IND_OIL_TRADING_PORT]
-base = "Oil Trading Port"
+base = "Fuel Terminal"
 
 [STR_STATION_OIL_TRADING_PORT]
-base = "Oil Trading Port"
+base = "Fuel Terminal"
 
 [STR_IND_PORT]
 base = "Port"

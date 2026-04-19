@@ -11,11 +11,10 @@ grf {
 			name: string(STR_PARAM_NAME_ECONOMIES);
 			desc: string(STR_PARAM_DESC_ECONOMIES);
 			min_value: 0;
-			max_value: ${len(firs.economy_manager)-1};
+			max_value: 0;
+			def_value: 0;
 			names: {
-			    <tal:build_economies repeat="economy firs.economy_manager">
-                    ${repeat.economy.index}: string(STR_PARAM_VALUE_ECONOMIES_${economy.id});
-			    </tal:build_economies>
+			    0: string(STR_PARAM_VALUE_ECONOMIES_OIL_TOWN);
 			};
 		}
 	}
@@ -98,6 +97,9 @@ if (param[6] == 0) { param[6] = 100; }
 if (param[7] == 0) { param[7] = 100; }
 if (param[8] == 0) { param[8] = 400; }
 if (param[9] == 0) { param[9] = 300; }
+
+<!--! Only OilTown is supported — clamp any stale cached economy value to 0 -->
+if (param[0] > 0) { param[0] = 0; }
 
 <!--! disable the default industries -->
 disable_item(FEAT_INDUSTRIES, 0, 36);

@@ -29,7 +29,7 @@ Tier 2  Primary processing
   Coking Plant          → coal → coke + coal tar
 
 Tier 3  Petrochemistry
-  Naphtha Cracking Plant → naphtha + refinery gas → ethylene + chemicals
+  Cracking Plant        → naphtha + refinery gas + coal tar → ethylene + chemicals
   Chemical Plant        → ethylene + sulphur + treated water → chemicals
   Fracking Fluid Plant  → chemicals + treated water → fracking fluid
 
@@ -38,18 +38,15 @@ Tier 4  Processing
   Bitumen Plant         → heavy oil + coke → bitumen
   Plastics Plant        → ethylene + chemicals → plastics
   Fertiliser Plant      → LNG + sulphur + chemicals → fertiliser
-  Petroleum Fuels Depot → light oil + chemicals + lubricants → petroleum fuels
+  Petroleum Refinery    → light oil + chemicals + lubricants → petroleum fuels
   Engineering Supplies Plant
                         → lubricants + bitumen + coke + ethylene + coal tar
                         → engineering supplies
 
 Tier 5  Sinks
-  Oil Trading Port      [coastal] accepts crude / light / heavy oil, petrol, LNG, LPG
-  Export Terminal       [coastal] chem + plastics + fert → food (bonus when all 3 supplied)
-  Pipeline Terminus     [inland, rare] same acceptance as Oil Trading Port
-  Coal Fired Power Station   → coal   [town-adjacent black hole]
-  Oil Fired Power Station    → heavy oil
-  Natural Gas Power Station  → LNG
+  Fuel Terminal         [coastal] accepts crude / light / heavy oil, petrol, LNG, LPG
+  Trading Port          [coastal] chem + plastics + fert → food (bonus when all 3 supplied)
+  Power Station         → accepts coal / heavy oil / LNG  [town-adjacent black hole]
   Water Tower           [in-town] accepts treated water (town delivery sink)
 ```
 

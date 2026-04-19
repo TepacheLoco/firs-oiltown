@@ -20,19 +20,6 @@ industry = IndustryTertiary(
     animated_tiles_fixed=True,
 )
 
-
-def _reuse_oil_trading_port_graphics(terrain=None, construction_state_num=None):
-    if construction_state_num is not None:
-        return (
-            '"src/graphics/industries/oil_trading_port_construction_'
-            + str(construction_state_num + 1)
-            + '.png"'
-        )
-    return '"src/graphics/industries/oil_trading_port.png"'
-
-
-industry.get_graphics_file_path = _reuse_oil_trading_port_graphics
-
 industry.enable_in_economy(
     "OIL_TOWN",
     accept_cargo_types=["WATR"],
@@ -43,20 +30,17 @@ industry.add_tile(
     location_checks=TileLocationChecks(require_road_adjacent=True),
 )
 
-spriteset_ground = industry.add_spriteset(
-    type="pavement",
-)
-# sphere tank from oil_trading_port spritesheet — reads like a water storage tank
-spriteset_tank = industry.add_spriteset(
-    sprites=[(510, 10, 64, 84, -31, -60)],
-)
+# Built-in OpenTTD sprites from IT_WATER_TOWER (sub-tropical water tower industry).
+# Ground 4550 is the arid/desert ground; tank 2346 is the completed building.
+sprite_ground = industry.add_sprite(sprite_number=4550)
+sprite_tank = industry.add_sprite(sprite_number=2346)
 
 industry.add_spritelayout(
     id="water_tower_spritelayout",
     tile="water_tower_tile_1",
-    ground_sprite=spriteset_ground,
+    ground_sprite=sprite_ground,
     ground_overlay=None,
-    building_sprites=[spriteset_tank],
+    building_sprites=[sprite_tank],
 )
 
 industry.add_industry_layout(

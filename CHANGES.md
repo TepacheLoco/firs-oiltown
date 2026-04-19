@@ -19,15 +19,14 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 **Industries (`src/industries/`):**
 - `desalination_plant.py` — coastal primary, produces treated water (reuses `oil_trading_port.png`)
 - `coking_plant.py` — secondary: coal → coke + coal tar (reuses `coke_oven.png`)
-- `petrochemical_plant.py` — secondary: naphtha + refinery gas → ethylene + chemicals (reuses `copper_smelter.png`). Display name "Naphtha Cracking Plant"
+- `petrochemical_plant.py` — secondary: naphtha + refinery gas + coal tar → ethylene + chemicals (reuses `copper_smelter.png`). Display name "Cracking Plant"
 - `fracking_well.py` — secondary: fracking fluid → raw gas + condensate (reuses `oil_wells.png`)
 - `fracking_fluid_plant.py` — secondary: chemicals + treated water → fracking fluid (reuses `tyre_plant.png`)
 - `lubricants_plant.py` — secondary: heavy oil + LNG → lubricants (reuses `oil_refinery.png`)
 - `bitumen_plant.py` — secondary: heavy oil + coke → bitumen (reuses `lime_kiln.png`)
 - `petroleum_fuels_depot.py` — secondary: light oil + chemicals + lubricants → petrol (reuses `oil_refinery.png`)
 - `export_terminal.py` — coastal primary port: chemicals + plastics + fertiliser → food (reuses `oil_trading_port.png`)
-- `gas_pipeline_terminus.py` — inland black-hole tertiary; display name "Pipeline Terminus" (reuses `gas_processing_plant.png`)
-- `coal_power_station.py`, `oil_power_station.py`, `gas_power_station.py` — tertiary town sinks (built-in OpenTTD power-plant sprites)
+- `power_station.py` — tertiary town sink; accepts coal, heavy oil, or LNG (built-in OpenTTD power-plant sprites)
 - `water_tower.py` — in-town tertiary; accepts treated water (reuses `oil_trading_port.png` sphere-tank sprite)
 
 **Root:**
@@ -48,6 +47,7 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - `plastics_plant.py` — enabled in OIL_TOWN (`ETHY` + `CHEM` → `PLAS`); fixed legacy file so spritelayouts meet the post-2022 `tile=` requirement (upstream file was orphaned / not imported); changed base-economy accept from `C2H4` to `ETHY` (C2H4 label is from a removed cargo)
 - `fertiliser_plant.py` — enabled in OIL_TOWN (`LNG_` + `SULP` + `CHEM` → `FERT`); fixed legacy file so spritelayouts have `tile=` kwarg; set `nearby_station_name` (was commented out)
 - `supply_yard.py` — enabled in OIL_TOWN with a new recipe: `LUBR` + `BITU` + `COKE` + `ETHY` + `CTAR` → `ENSP`
+- `natural_gas_well.py` — swapped building visual: monkey-patched graphics path to `oil_refinery.png` and changed `spriteset_building` coords to oil_refinery's sprite_1. Pumps still use built-in OpenTTD sprites.
 
 **`src/economies/oil_town.py`**
 - Expanded economy `cargos` list to include every new/used cargo in OIL_TOWN (bitumen, chemicals, coal_tar, coke, condensate, engineering_supplies, ethylene, fertiliser, food, fracking_fluid, lubricants, mail, petrol, plastics, treated_water, and the previously-existing oil chain cargos)
@@ -61,8 +61,10 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - Renamed display strings (internal IDs unchanged):
   - `STR_IND_PLASTICS_PLANT`: "PVC Plant" → "Plastics Plant"
   - `STR_IND_SUPPLY_YARD`: "Supply Yard" → "Engineering Supplies Plant"
-  - `STR_IND_GAS_PIPELINE_TERMINUS`: "Gas Pipeline Terminus" → "Pipeline Terminus"
-  - `STR_IND_PETROCHEMICAL_PLANT`: "Petrochemical Plant" → "Naphtha Cracking Plant"
+  - `STR_IND_PETROCHEMICAL_PLANT`: "Petrochemical Plant" → "Cracking Plant"
+  - `STR_IND_EXPORT_TERMINAL`: "Export Terminal" → "Trading Port"
+  - `STR_IND_OIL_TRADING_PORT`: "Oil Trading Port" → "Fuel Terminal"
+  - `STR_IND_PETROLEUM_FUELS_DEPOT`: "Petroleum Fuels Depot" → "Petroleum Refinery"
 - Added `STR_STATION_FERTILISER_PLANT` (was missing)
 
 ### Notes

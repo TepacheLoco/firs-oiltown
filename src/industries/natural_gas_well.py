@@ -24,6 +24,13 @@ industry.enable_in_economy(
     "OIL_TOWN",
 )
 
+
+def _reuse_oil_refinery_graphics(terrain=None, construction_state_num=None):
+    return '"src/graphics/industries/oil_refinery.png"'
+
+
+industry.get_graphics_file_path = _reuse_oil_refinery_graphics
+
 industry.add_tile(
     id="natural_gas_well_tile_1",
     location_checks=TileLocationChecks(disallow_industry_adjacent=True),
@@ -55,7 +62,7 @@ sprite_ground_overlay_building = industry.add_sprite(
     sprite_number="GROUNDTILE_MUD_TRACKS",
 )
 spriteset_building = industry.add_spriteset(
-    sprites=[(10, 10, 64, 38, -31, -9)], xoffset=1, yoffset=2, xextent=15, yextent=14
+    sprites=[(10, 10, 64, 66, -31, -35)],
 )
 
 industry.add_spritelayout(
@@ -82,7 +89,10 @@ industry.add_industry_layout(
         (0, 7, "natural_gas_well_spritelayout_pump"),
         (1, 4, "natural_gas_well_spritelayout_pump"),
         (2, 1, "natural_gas_well_spritelayout_pump"),
+        (3, 4, "natural_gas_well_spritelayout_building"),
+        (2, 4, "natural_gas_well_spritelayout_building"),
         (3, 5, "natural_gas_well_spritelayout_building"),
+        (2, 5, "natural_gas_well_spritelayout_building"),
         (4, 8, "natural_gas_well_spritelayout_pump"),
         (5, 1, "natural_gas_well_spritelayout_pump"),
         (5, 4, "natural_gas_well_spritelayout_pump"),
@@ -95,6 +105,7 @@ industry.add_industry_layout(
         (0, 4, "natural_gas_well_spritelayout_pump"),
         (1, 4, "natural_gas_well_spritelayout_pump"),
         (2, 8, "natural_gas_well_spritelayout_pump"),
+        (4, 3, "natural_gas_well_spritelayout_building"),
         (4, 4, "natural_gas_well_spritelayout_building"),
         (4, 8, "natural_gas_well_spritelayout_pump"),
         (5, 2, "natural_gas_well_spritelayout_pump"),

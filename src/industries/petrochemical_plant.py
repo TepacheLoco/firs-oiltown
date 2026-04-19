@@ -2,7 +2,7 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="petrochemical_plant",
-    accept_cargos_with_input_ratios=[("NAPH", 5), ("RGAS", 3)],
+    accept_cargos_with_input_ratios=[("NAPH", 4), ("RGAS", 2), ("CTAR", 2)],
     prod_cargo_types_with_output_ratios=[],
     prob_in_game="3",
     prob_map_gen="5",

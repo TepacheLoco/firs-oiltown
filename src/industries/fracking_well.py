@@ -18,19 +18,17 @@ industry = IndustrySecondary(
 )
 
 
-def _reuse_oil_wells_graphics(terrain=None, construction_state_num=None):
-    if terrain == "snow":
-        return '"src/graphics/industries/oil_wells_snow.png"'
-    return '"src/graphics/industries/oil_wells.png"'
+def _reuse_oil_refinery_graphics(terrain=None, construction_state_num=None):
+    return '"src/graphics/industries/oil_refinery.png"'
 
 
-industry.get_graphics_file_path = _reuse_oil_wells_graphics
+industry.get_graphics_file_path = _reuse_oil_refinery_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
     prod_cargo_types_with_output_ratios=[
-        ("NGAS", 5),
-        ("COND", 3),
+        ("NGAS", 40),
+        ("COND", 8),
     ],
 )
 
@@ -53,6 +51,7 @@ industry.add_tile(
     location_checks=TileLocationChecks(disallow_industry_adjacent=True),
 )
 
+# pump sprites (built-in OpenTTD; mirrors oil_wells_spritelayout_pump)
 sprite_ground_overlay_pump = industry.add_sprite(sprite_number=2173)
 sprite_pump = industry.add_sprite(
     sprite_number="2174 + (((animation_frame % 11) < 6) ? (animation_frame % 11) : 10 - (animation_frame % 11))",
@@ -61,12 +60,12 @@ sprite_pump = industry.add_sprite(
     xextent=15,
     yextent=14,
 )
-sprite_ground_overlay_building = industry.add_sprite(
-    sprite_number="GROUNDTILE_MUD_TRACKS",
-)
-spriteset_building = industry.add_spriteset(
-    sprites=[(10, 10, 64, 38, -31, -9)], xoffset=1, yoffset=2, xextent=15, yextent=14
-)
+
+# refinery building sprites from oil_refinery.png
+spriteset_ground = industry.add_spriteset(type="asphalt")
+spriteset_refinery_1 = industry.add_spriteset(sprites=[(10, 10, 64, 66, -31, -35)])
+spriteset_refinery_3 = industry.add_spriteset(sprites=[(150, 10, 64, 128, -31, -96)])
+spriteset_refinery_4 = industry.add_spriteset(sprites=[(220, 10, 64, 128, -31, -96)])
 
 industry.add_spritelayout(
     id="fracking_well_spritelayout_pump",
@@ -77,37 +76,46 @@ industry.add_spritelayout(
     fences=["nw", "ne", "se", "sw"],
 )
 industry.add_spritelayout(
-    id="fracking_well_spritelayout_building",
+    id="fracking_well_spritelayout_refinery_1",
     tile="fracking_well_tile_2",
-    ground_sprite=None,
-    ground_overlay=sprite_ground_overlay_building,
-    building_sprites=[spriteset_building],
+    ground_sprite=spriteset_ground,
+    ground_overlay=None,
+    building_sprites=[spriteset_refinery_1],
+    fences=["nw", "ne", "se", "sw"],
+)
+industry.add_spritelayout(
+    id="fracking_well_spritelayout_refinery_3",
+    tile="fracking_well_tile_2",
+    ground_sprite=spriteset_ground,
+    ground_overlay=None,
+    building_sprites=[spriteset_refinery_3],
+    fences=["nw", "ne", "se", "sw"],
+)
+industry.add_spritelayout(
+    id="fracking_well_spritelayout_refinery_4",
+    tile="fracking_well_tile_2",
+    ground_sprite=spriteset_ground,
+    ground_overlay=None,
+    building_sprites=[spriteset_refinery_4],
     fences=["nw", "ne", "se", "sw"],
 )
 
+# compact 2x2 layouts — all four tiles adjacent
 industry.add_industry_layout(
     id="fracking_well_industry_layout_1",
     layout=[
-        (0, 0, "fracking_well_spritelayout_pump"),
-        (0, 4, "fracking_well_spritelayout_pump"),
-        (1, 4, "fracking_well_spritelayout_pump"),
-        (2, 8, "fracking_well_spritelayout_pump"),
-        (4, 4, "fracking_well_spritelayout_building"),
-        (4, 8, "fracking_well_spritelayout_pump"),
-        (5, 2, "fracking_well_spritelayout_pump"),
-        (6, 2, "fracking_well_spritelayout_pump"),
-        (6, 4, "fracking_well_spritelayout_pump"),
+        (1, 1, "fracking_well_spritelayout_pump"),
+        (0, 1, "fracking_well_spritelayout_refinery_1"),
+        (1, 0, "fracking_well_spritelayout_refinery_3"),
+        (0, 0, "fracking_well_spritelayout_refinery_4"),
     ],
 )
 industry.add_industry_layout(
     id="fracking_well_industry_layout_2",
     layout=[
-        (0, 0, "fracking_well_spritelayout_pump"),
-        (0, 2, "fracking_well_spritelayout_pump"),
-        (1, 4, "fracking_well_spritelayout_pump"),
-        (1, 6, "fracking_well_spritelayout_pump"),
-        (2, 0, "fracking_well_spritelayout_building"),
-        (3, 2, "fracking_well_spritelayout_pump"),
-        (3, 4, "fracking_well_spritelayout_pump"),
+        (0, 0, "fracking_well_spritelayout_refinery_4"),
+        (0, 1, "fracking_well_spritelayout_pump"),
+        (1, 0, "fracking_well_spritelayout_refinery_3"),
+        (1, 1, "fracking_well_spritelayout_refinery_1"),
     ],
 )

@@ -3,10 +3,10 @@
 # !! ^ that doesn't appear to work, action 14 param doesn't seem to be able to abstract name value from name orde??
 
 economy_module_names = [
+    "oil_town",
     "basic_temperate",
     "basic_arctic",
     "basic_tropic",
     "steeltown",
     "in_a_hot_country",
-    "oil_town",
 ]

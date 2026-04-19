@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRS OilTown — an oil &amp; petrochemistry economy for OpenTTD</title>
+<meta name="description" content="A FIRS fork for OpenTTD focused on the oil and petrochemistry supply chain: crude, gas, plastics, fuels, fertiliser.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="tag">FIRS 5.2.0 fork &middot; GPL v2</div>
+    <h1>FIRS <span class="accent">OilTown</span></h1>
+    <p class="lede">A single-economy FIRS fork for OpenTTD. Everything revolves around oil and gas: pump it, crack it, ship it, burn it, and feed the cycle with engineering supplies.</p>
+    <div class="cta-row">
+      <a class="cta" href="#install">Install</a>
+      <a class="cta cta-ghost" href="#supply-chain">Supply chain</a>
+      <a class="cta cta-ghost" href="https://github.com/TepacheLoco/firs-oiltown" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="what-it-is" class="container">
+  <h2>What OilTown is</h2>
+  <p>OilTown is a <strong>temperate-climate, single-economy</strong> fork of <a href="https://github.com/andythenorth/firs" target="_blank" rel="noopener">FIRS</a>. It keeps FIRS's upstream industries that make sense for an oil world and adds a full petrochemistry chain on top: cracking, plastics, fertiliser, bitumen, lubricants, fracking, treated water, and export trading.</p>
+  <p>The hook: a five-tier chain where every output feeds something further downstream, and a <em>feedback loop</em> in which the engineering supplies you manufacture are what boost your upstream extraction.</p>
+</section>
+
+<section id="supply-chain" class="container">
+  <h2>The supply chain</h2>
+  <p>Five tiers. Arrows flow downstream; the <span class="feedback-pill">engineering supplies</span> loop runs the other way.</p>
+
+  <div class="tiers">
+
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-num">1</span>
+        <h3>Extraction</h3>
+      </div>
+      <ul class="industry-grid">
+        <li><strong>Offshore Oil Rig</strong><span>→ crude oil (+ passengers byproduct)</span></li>
+        <li><strong>Onshore Oil Wells</strong><span>→ crude oil (+ small raw gas)</span></li>
+        <li><strong>Natural Gas Well</strong><span>→ raw gas</span></li>
+        <li><strong>Coal Mine</strong><span>→ coal</span></li>
+        <li><strong>Desalination Plant</strong><span class="coastal">coastal</span><span>→ treated water</span></li>
+        <li><strong>Fracking Well</strong><span class="warn">requires fracking fluid</span><span>→ raw gas + condensate</span></li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-num">2</span>
+        <h3>Primary processing</h3>
+      </div>
+      <ul class="industry-grid">
+        <li><strong>Oil Refinery</strong><span>crude (+ optional condensate) → light oil + heavy oil + naphtha + refinery gas</span></li>
+        <li><strong>Gas Processing Plant</strong><span>raw gas → LNG + LPG + sulphur</span></li>
+        <li><strong>Coking Plant</strong><span>coal → coke + coal tar</span></li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-num">3</span>
+        <h3>Petrochemistry</h3>
+      </div>
+      <ul class="industry-grid">
+        <li><strong>Cracking Plant</strong><span>naphtha + refinery gas + coal tar → ethylene + chemicals</span></li>
+        <li><strong>Chemical Plant</strong><span>ethylene + sulphur + treated water → chemicals</span></li>
+        <li><strong>Fracking Fluid Plant</strong><span>chemicals + treated water → fracking fluid</span></li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-num">4</span>
+        <h3>Processing &amp; production</h3>
+      </div>
+      <ul class="industry-grid">
+        <li><strong>Lubricants Plant</strong><span>heavy oil + LNG → lubricants</span></li>
+        <li><strong>Bitumen Plant</strong><span>heavy oil + coke → bitumen</span></li>
+        <li><strong>Plastics Plant</strong><span>ethylene + chemicals → plastics</span></li>
+        <li><strong>Fertiliser Plant</strong><span>LNG + sulphur + chemicals → fertiliser</span></li>
+        <li><strong>Petroleum Refinery</strong><span>light oil + chemicals + lubricants → petroleum fuels</span></li>
+        <li><strong>Engineering Supplies Plant</strong><span>lubricants + bitumen + coke + ethylene + coal tar → engineering supplies</span></li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-num">5</span>
+        <h3>Sinks</h3>
+      </div>
+      <ul class="industry-grid">
+        <li><strong>Fuel Terminal</strong><span class="coastal">coastal</span><span>accepts crude / light / heavy oil, petrol, LNG, LPG</span></li>
+        <li><strong>Trading Port</strong><span class="coastal">coastal</span><span>chemicals + plastics + fertiliser → food (bonus when all 3 supplied)</span></li>
+        <li><strong>Power Station</strong><span>accepts coal / heavy oil / LNG</span></li>
+        <li><strong>Water Tower</strong><span class="town">in-town</span><span>accepts treated water — boosts town happiness</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="feedback-loops" class="container">
+  <h2>The feedback loops</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Engineering supplies boost extraction</h3>
+      <p>Delivering engineering supplies to any tier-1 extractive (coal mine, oil wells, natural gas well, oil rig) boosts its output by roughly <strong>+40%</strong>. The supplies themselves come out of tier 4, which means every barrel of crude and tonne of coal you produce feeds back into more crude and more coal down the line.</p>
+    </div>
+    <div class="card">
+      <h3>Fracking needs fluid</h3>
+      <p>Unlike the other extractives, a fracking well <em>requires</em> fracking fluid deliveries to operate — no fluid, no gas. It rewards you for the long chain you built to make it (chemicals → fracking fluid → well): <strong>~5&times; gas</strong> and <strong>~1&times; condensate</strong> per unit of fluid delivered.</p>
+    </div>
+    <div class="card">
+      <h3>Treated water for towns</h3>
+      <p>Treated water has the same town-delivery effect food has in other FIRS economies: haul it to a water tower and you'll see the usual growth / happiness bonus kick in.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cargos" class="container">
+  <h2>New cargos in OilTown</h2>
+  <div class="cargo-grid">
+    <div><strong>Treated Water</strong><span>WATR &middot; liquid bulk, potable</span></div>
+    <div><strong>Ethylene</strong><span>ETHY &middot; gas + liquid bulk</span></div>
+    <div><strong>Condensate</strong><span>COND &middot; liquid bulk</span></div>
+    <div><strong>Lubricants</strong><span>LUBR &middot; liquid bulk</span></div>
+    <div><strong>Bitumen</strong><span>BITU &middot; liquid bulk</span></div>
+    <div><strong>Fracking Fluid</strong><span>FFLD &middot; liquid bulk</span></div>
+  </div>
+  <p class="note">In addition, upstream gases (raw gas, LNG, LPG, refinery gas) have had <code>CC_LIQUID_BULK</code> added to their cargo classes so tank wagons and tankers can carry them alongside specialist gas vehicles.</p>
+</section>
+
+<section id="install" class="container">
+  <h2>Install</h2>
+  <p>Published to BaNaNaS, OpenTTD's online content service — no manual file handling required.</p>
+  <ol class="steps">
+    <li>
+      <h3>Open the online content browser</h3>
+      <p>From the OpenTTD main menu, click <strong>Check online content</strong>.</p>
+    </li>
+    <li>
+      <h3>Find the package</h3>
+      <p>Filter by <strong>NewGRF</strong> and search for <code>FIRS Forked: Oil Town</code>. Tick it and click <strong>Download</strong>.</p>
+    </li>
+    <li>
+      <h3>Enable it and start a new game</h3>
+      <p>Start a new game (temperate climate). In the NewGRF settings, enable <strong>FIRS Forked: Oil Town</strong>. The economy parameter is fixed to Oil Town — no configuration needed.</p>
+    </li>
+  </ol>
+  <p class="note">Prefer to build from source? Clone the <a href="https://github.com/TepacheLoco/firs-oiltown" target="_blank" rel="noopener">GitHub repo</a> and follow the build instructions in the README.</p>
+</section>
+
+<section id="credits" class="container">
+  <h2>Credits &amp; license</h2>
+  <p>Based on <a href="https://github.com/andythenorth/firs" target="_blank" rel="noopener">FIRS</a> by andythenorth and contributors — see the upstream repository for the full list. All sprite art, build tooling, and NewGRF templating is from upstream FIRS. This fork reuses existing FIRS sprite sheets for its new industries rather than producing new art.</p>
+  <p>Licensed under GPL v2. See <code>CHANGES.md</code> in the repo root for the fork-diff required by the GPL.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>OilTown &middot; a FIRS fork &middot; GPL v2</span>
+    <span><a href="https://github.com/TepacheLoco/firs-oiltown" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
