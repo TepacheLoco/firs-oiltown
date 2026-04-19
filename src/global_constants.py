@@ -388,7 +388,7 @@ grfid = "4F540001"
 metadata = {
     "dev_thread_url": "http://www.tt-forums.net/viewtopic.php?t=41607",
     "repo_url": "https://github.com/andythenorth/firs",
-    "docs_url": "https://grf.farm/firs",
+    "docs_url": "https://firs-forked-oiltown.netlify.app/",
 }
 
 chameleon_cache_dir = ".chameleon_cache"

@@ -25,7 +25,7 @@ Tier 2  Primary processing
   Oil Refinery          → crude oil (+ condensate, optional)
                         → light oil + heavy oil + naphtha + refinery gas
   Gas Processing Plant  → raw gas
-                        → LNG + LPG + sulphur
+                        → LNG + LPG + sulphur (+ a little condensate)
   Coking Plant          → coal → coke + coal tar
 
 Tier 3  Petrochemistry
@@ -43,9 +43,9 @@ Tier 4  Processing
                         → lubricants + bitumen + coke + ethylene + coal tar
                         → engineering supplies
 
-Tier 5  Sinks
+Tier 5  Exports
   Fuel Terminal         [coastal] accepts crude / light / heavy oil, petrol, LNG, LPG
-  Trading Port          [coastal] chem + plastics + fert → food (bonus when all 3 supplied)
+  Trading Port          [coastal] accepts chem + plastics + fert + bitumen + coal + coke + lubricants → food
   Power Station         → accepts coal / heavy oil / LNG  [town-adjacent black hole]
   Water Tower           [in-town] accepts treated water (town delivery sink)
 ```

@@ -25,7 +25,7 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - `lubricants_plant.py` — secondary: heavy oil + LNG → lubricants (reuses `oil_refinery.png`)
 - `bitumen_plant.py` — secondary: heavy oil + coke → bitumen (reuses `lime_kiln.png`)
 - `petroleum_fuels_depot.py` — secondary: light oil + chemicals + lubricants → petrol (reuses `oil_refinery.png`)
-- `export_terminal.py` — coastal primary port: chemicals + plastics + fertiliser → food (reuses `oil_trading_port.png`)
+- `export_terminal.py` — coastal primary port: chemicals + plastics + fertiliser + bitumen + coal + coke + lubricants → food (reuses `port.png`). Display name "Trading Port"
 - `power_station.py` — tertiary town sink; accepts coal, heavy oil, or LNG (built-in OpenTTD power-plant sprites)
 - `water_tower.py` — in-town tertiary; accepts treated water (reuses `oil_trading_port.png` sphere-tank sprite)
 

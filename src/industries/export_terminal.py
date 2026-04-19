@@ -35,7 +35,7 @@ industry.get_graphics_file_path = _reuse_port_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
-    accept_cargo_types=["CHEM", "PLAS", "FERT"],
+    accept_cargo_types=["CHEM", "PLAS", "FERT", "BITU", "COAL", "COKE", "LUBR"],
     prod_cargo_types_with_multipliers=[("FOOD", 16)],
 )
 

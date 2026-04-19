@@ -13,7 +13,7 @@ base = "{ORANGE}FIRS Forked: Oil Town{}{BLACK}A fork of FIRS by TepacheLoco, att
 base = "Maximum distance of fishing grounds, oil rigs and dredging sites from the coast in tiles."
 
 [STR_PARAM_DESC_ECONOMIES]
-base = "OilTown is a single-economy fork of FIRS built around oil and petrochemistry.{}{}Extract crude oil, natural gas, coal and desalinated water, then refine and crack them into fuels, plastics, fertiliser and chemicals.{}{}Feed the chain back on itself: the {SILVER}engineering supplies {BLACK}you manufacture boost your extractive industries by ~40%.{}{}Deliver fracking fluid to fracking wells, pipe treated water to town water towers, and ship finished goods out via the coastal Trading Port for food production."
+base = "OilTown is a single-economy fork of FIRS built around oil and petrochemistry.{}{}Extract crude oil, natural gas, coal and desalinated water, then refine and crack them into fuels, plastics, fertiliser and chemicals.{}{}Feed the chain back on itself: the {SILVER}engineering supplies {BLACK}you manufacture boost your extractive industries by ~40%.{}{}Deliver fracking fluid to fracking wells, pipe treated water to town water towers, and ship finished goods out via the coastal Trading Port for food production.{}{}{SILVER}Sub-tropical climate is not necessary but recommended."
 
 [STR_PARAM_DESC_NO_OPENINGS]
 base = "By default, new industries will open during the game.{}{}If {SILVER}prevent opening {BLACK}is turned on industries will not open during game, and players will not be able to fund or prospect for industries."

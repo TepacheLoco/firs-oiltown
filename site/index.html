@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIRS OilTown — an oil &amp; petrochemistry economy for OpenTTD</title>
-<meta name="description" content="A FIRS fork for OpenTTD focused on the oil and petrochemistry supply chain: crude, gas, plastics, fuels, fertiliser.">
+<title>FIRS Forked: Oil Town — an oil &amp; petrochemistry economy for OpenTTD</title>
+<meta name="description" content="A single-economy FIRS fork for OpenTTD by TepacheLoco, focused on the oil and petrochemistry supply chain: crude, gas, plastics, fuels, fertiliser.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,8 +16,8 @@
 <header class="hero">
   <div class="container">
     <div class="tag">FIRS 5.2.0 fork &middot; GPL v2</div>
-    <h1>FIRS <span class="accent">OilTown</span></h1>
-    <p class="lede">A single-economy FIRS fork for OpenTTD. Everything revolves around oil and gas: pump it, crack it, ship it, burn it, and feed the cycle with engineering supplies.</p>
+    <h1>FIRS Forked: <span class="accent">Oil Town</span></h1>
+    <p class="lede">A single-economy FIRS fork for OpenTTD by TepacheLoco. Everything revolves around oil and gas: pump it, refine it, crack it, ship it, burn it.</p>
     <div class="cta-row">
       <a class="cta" href="#install">Install</a>
       <a class="cta cta-ghost" href="#supply-chain">Supply chain</a>
@@ -25,14 +29,46 @@
 <main>
 
 <section id="what-it-is" class="container">
-  <h2>What OilTown is</h2>
-  <p>OilTown is a <strong>temperate-climate, single-economy</strong> fork of <a href="https://github.com/andythenorth/firs" target="_blank" rel="noopener">FIRS</a>. It keeps FIRS's upstream industries that make sense for an oil world and adds a full petrochemistry chain on top: cracking, plastics, fertiliser, bitumen, lubricants, fracking, treated water, and export trading.</p>
-  <p>The hook: a five-tier chain where every output feeds something further downstream, and a <em>feedback loop</em> in which the engineering supplies you manufacture are what boost your upstream extraction.</p>
+  <h2>What Oil Town is</h2>
+  <p>Oil Town is a <strong>single-economy</strong> fork of <a href="https://bundles.openttdcoop.org/firs/releases/LATEST/docs/html/get_started.html" target="_blank" rel="noopener">FIRS</a>. It keeps FIRS's upstream industries that make sense for an oil world and adds a full petrochemistry chain on top: cracking, plastics, fertiliser, bitumen, lubricants, fracking, treated water, and export trading. Sub-tropical climate is not necessary but recommended.</p>
+  <p>The hook: a five-tier chain where every output feeds something further downstream, with a couple of feedback loops tying the whole thing together.</p>
 </section>
 
 <section id="supply-chain" class="container">
   <h2>The supply chain</h2>
-  <p>Five tiers. Arrows flow downstream; the <span class="feedback-pill">engineering supplies</span> loop runs the other way.</p>
+
+  <div class="cargo-filter">
+    <div class="cargo-filter-top">
+      <div class="cargo-filter-label">Filter by cargo</div>
+      <button class="filter-reset" disabled>Clear filter</button>
+    </div>
+    <div class="cargo-filter-chips">
+      <button class="chip filter" data-cargo="crude-oil">crude oil</button>
+      <button class="chip filter" data-cargo="raw-gas">raw gas</button>
+      <button class="chip filter" data-cargo="coal">coal</button>
+      <button class="chip filter" data-cargo="treated-water">treated water</button>
+      <button class="chip filter" data-cargo="condensate">condensate</button>
+      <button class="chip filter" data-cargo="fracking-fluid">fracking fluid</button>
+      <button class="chip filter" data-cargo="light-oil">light oil</button>
+      <button class="chip filter" data-cargo="heavy-oil">heavy oil</button>
+      <button class="chip filter" data-cargo="naphtha">naphtha</button>
+      <button class="chip filter" data-cargo="refinery-gas">refinery gas</button>
+      <button class="chip filter" data-cargo="lng">LNG</button>
+      <button class="chip filter" data-cargo="lpg">LPG</button>
+      <button class="chip filter" data-cargo="sulphur">sulphur</button>
+      <button class="chip filter" data-cargo="coke">coke</button>
+      <button class="chip filter" data-cargo="coal-tar">coal tar</button>
+      <button class="chip filter" data-cargo="ethylene">ethylene</button>
+      <button class="chip filter" data-cargo="chemicals">chemicals</button>
+      <button class="chip filter" data-cargo="plastics">plastics</button>
+      <button class="chip filter" data-cargo="lubricants">lubricants</button>
+      <button class="chip filter" data-cargo="bitumen">bitumen</button>
+      <button class="chip filter" data-cargo="fertiliser">fertiliser</button>
+      <button class="chip filter" data-cargo="petroleum-fuels">petroleum fuels</button>
+      <button class="chip filter" data-cargo="engineering-supplies">engineering supplies</button>
+      <button class="chip filter" data-cargo="food">food</button>
+    </div>
+  </div>
 
   <div class="tiers">
 
@@ -42,12 +78,77 @@
         <h3>Extraction</h3>
       </div>
       <ul class="industry-grid">
-        <li><strong>Offshore Oil Rig</strong><span>→ crude oil (+ passengers byproduct)</span></li>
-        <li><strong>Onshore Oil Wells</strong><span>→ crude oil (+ small raw gas)</span></li>
-        <li><strong>Natural Gas Well</strong><span>→ raw gas</span></li>
-        <li><strong>Coal Mine</strong><span>→ coal</span></li>
-        <li><strong>Desalination Plant</strong><span class="coastal">coastal</span><span>→ treated water</span></li>
-        <li><strong>Fracking Well</strong><span class="warn">requires fracking fluid</span><span>→ raw gas + condensate</span></li>
+        <li class="industry" data-cargos="engineering-supplies crude-oil passengers">
+          <div class="industry-head"><strong>Offshore Oil Rig</strong><span class="offshore">off-shore</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="crude-oil">crude oil</span>
+              <span class="chip out" data-cargo="passengers">passengers</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="engineering-supplies crude-oil raw-gas">
+          <div class="industry-head"><strong>Onshore Oil Wells</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="crude-oil">crude oil</span>
+              <span class="chip out" data-cargo="raw-gas">raw gas</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="engineering-supplies raw-gas">
+          <div class="industry-head"><strong>Natural Gas Well</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="raw-gas">raw gas</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="engineering-supplies coal">
+          <div class="industry-head"><strong>Coal Mine</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="coal">coal</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="treated-water">
+          <div class="industry-head"><strong>Desalination Plant</strong><span class="coastal">coastal</span></div>
+          <div class="industry-flow">
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="treated-water">treated water</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="fracking-fluid raw-gas condensate">
+          <div class="industry-head"><strong>Fracking Well</strong><span class="warn">requires fluid</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="fracking-fluid">fracking fluid</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="raw-gas">raw gas</span>
+              <span class="chip out" data-cargo="condensate">condensate</span>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -57,9 +158,50 @@
         <h3>Primary processing</h3>
       </div>
       <ul class="industry-grid">
-        <li><strong>Oil Refinery</strong><span>crude (+ optional condensate) → light oil + heavy oil + naphtha + refinery gas</span></li>
-        <li><strong>Gas Processing Plant</strong><span>raw gas → LNG + LPG + sulphur</span></li>
-        <li><strong>Coking Plant</strong><span>coal → coke + coal tar</span></li>
+        <li class="industry" data-cargos="crude-oil condensate light-oil heavy-oil naphtha refinery-gas">
+          <div class="industry-head"><strong>Oil Refinery</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="crude-oil">crude oil</span>
+              <span class="chip in" data-cargo="condensate">condensate</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="light-oil">light oil</span>
+              <span class="chip out" data-cargo="heavy-oil">heavy oil</span>
+              <span class="chip out" data-cargo="naphtha">naphtha</span>
+              <span class="chip out" data-cargo="refinery-gas">refinery gas</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="raw-gas lng lpg sulphur condensate">
+          <div class="industry-head"><strong>Gas Processing Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="raw-gas">raw gas</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="lng">LNG</span>
+              <span class="chip out" data-cargo="lpg">LPG</span>
+              <span class="chip out" data-cargo="sulphur">sulphur</span>
+              <span class="chip out" data-cargo="condensate">condensate</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="coal coke coal-tar">
+          <div class="industry-head"><strong>Coking Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="coal">coal</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="coke">coke</span>
+              <span class="chip out" data-cargo="coal-tar">coal tar</span>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -69,9 +211,48 @@
         <h3>Petrochemistry</h3>
       </div>
       <ul class="industry-grid">
-        <li><strong>Cracking Plant</strong><span>naphtha + refinery gas + coal tar → ethylene + chemicals</span></li>
-        <li><strong>Chemical Plant</strong><span>ethylene + sulphur + treated water → chemicals</span></li>
-        <li><strong>Fracking Fluid Plant</strong><span>chemicals + treated water → fracking fluid</span></li>
+        <li class="industry" data-cargos="naphtha refinery-gas coal-tar ethylene chemicals">
+          <div class="industry-head"><strong>Cracking Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="naphtha">naphtha</span>
+              <span class="chip in" data-cargo="refinery-gas">refinery gas</span>
+              <span class="chip in" data-cargo="coal-tar">coal tar</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="ethylene">ethylene</span>
+              <span class="chip out" data-cargo="chemicals">chemicals</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="ethylene sulphur treated-water chemicals">
+          <div class="industry-head"><strong>Chemical Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="ethylene">ethylene</span>
+              <span class="chip in" data-cargo="sulphur">sulphur</span>
+              <span class="chip in" data-cargo="treated-water">treated water</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="chemicals">chemicals</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="chemicals treated-water fracking-fluid">
+          <div class="industry-head"><strong>Fracking Fluid Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="chemicals">chemicals</span>
+              <span class="chip in" data-cargo="treated-water">treated water</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="fracking-fluid">fracking fluid</span>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -81,25 +262,155 @@
         <h3>Processing &amp; production</h3>
       </div>
       <ul class="industry-grid">
-        <li><strong>Lubricants Plant</strong><span>heavy oil + LNG → lubricants</span></li>
-        <li><strong>Bitumen Plant</strong><span>heavy oil + coke → bitumen</span></li>
-        <li><strong>Plastics Plant</strong><span>ethylene + chemicals → plastics</span></li>
-        <li><strong>Fertiliser Plant</strong><span>LNG + sulphur + chemicals → fertiliser</span></li>
-        <li><strong>Petroleum Refinery</strong><span>light oil + chemicals + lubricants → petroleum fuels</span></li>
-        <li><strong>Engineering Supplies Plant</strong><span>lubricants + bitumen + coke + ethylene + coal tar → engineering supplies</span></li>
+        <li class="industry" data-cargos="heavy-oil lng lubricants">
+          <div class="industry-head"><strong>Lubricants Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="heavy-oil">heavy oil</span>
+              <span class="chip in" data-cargo="lng">LNG</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="lubricants">lubricants</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="heavy-oil coke bitumen">
+          <div class="industry-head"><strong>Bitumen Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="heavy-oil">heavy oil</span>
+              <span class="chip in" data-cargo="coke">coke</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="bitumen">bitumen</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="ethylene chemicals plastics">
+          <div class="industry-head"><strong>Plastics Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="ethylene">ethylene</span>
+              <span class="chip in" data-cargo="chemicals">chemicals</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="plastics">plastics</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="lng sulphur chemicals fertiliser">
+          <div class="industry-head"><strong>Fertiliser Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="lng">LNG</span>
+              <span class="chip in" data-cargo="sulphur">sulphur</span>
+              <span class="chip in" data-cargo="chemicals">chemicals</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="fertiliser">fertiliser</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="light-oil chemicals lubricants petroleum-fuels">
+          <div class="industry-head"><strong>Petroleum Refinery</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="light-oil">light oil</span>
+              <span class="chip in" data-cargo="chemicals">chemicals</span>
+              <span class="chip in" data-cargo="lubricants">lubricants</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="petroleum-fuels">petroleum fuels</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="lubricants bitumen coke ethylene coal-tar engineering-supplies">
+          <div class="industry-head"><strong>Engineering Supplies Plant</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="lubricants">lubricants</span>
+              <span class="chip in" data-cargo="bitumen">bitumen</span>
+              <span class="chip in" data-cargo="coke">coke</span>
+              <span class="chip in" data-cargo="ethylene">ethylene</span>
+              <span class="chip in" data-cargo="coal-tar">coal tar</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
     <div class="tier">
       <div class="tier-header">
         <span class="tier-num">5</span>
-        <h3>Sinks</h3>
+        <h3>Exports</h3>
       </div>
       <ul class="industry-grid">
-        <li><strong>Fuel Terminal</strong><span class="coastal">coastal</span><span>accepts crude / light / heavy oil, petrol, LNG, LPG</span></li>
-        <li><strong>Trading Port</strong><span class="coastal">coastal</span><span>chemicals + plastics + fertiliser → food (bonus when all 3 supplied)</span></li>
-        <li><strong>Power Station</strong><span>accepts coal / heavy oil / LNG</span></li>
-        <li><strong>Water Tower</strong><span class="town">in-town</span><span>accepts treated water — boosts town happiness</span></li>
+        <li class="industry" data-cargos="crude-oil light-oil heavy-oil petroleum-fuels lng lpg">
+          <div class="industry-head"><strong>Fuel Terminal</strong><span class="coastal">coastal</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="crude-oil">crude oil</span>
+              <span class="chip in" data-cargo="light-oil">light oil</span>
+              <span class="chip in" data-cargo="heavy-oil">heavy oil</span>
+              <span class="chip in" data-cargo="petroleum-fuels">petroleum fuels</span>
+              <span class="chip in" data-cargo="lng">LNG</span>
+              <span class="chip in" data-cargo="lpg">LPG</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="chemicals plastics fertiliser bitumen coal coke lubricants food">
+          <div class="industry-head"><strong>Trading Port</strong><span class="coastal">coastal</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="chemicals">chemicals</span>
+              <span class="chip in" data-cargo="plastics">plastics</span>
+              <span class="chip in" data-cargo="fertiliser">fertiliser</span>
+              <span class="chip in" data-cargo="bitumen">bitumen</span>
+              <span class="chip in" data-cargo="coal">coal</span>
+              <span class="chip in" data-cargo="coke">coke</span>
+              <span class="chip in" data-cargo="lubricants">lubricants</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
+            <div class="flow-group outputs">
+<span class="chip out" data-cargo="food">food</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="coal heavy-oil lng">
+          <div class="industry-head"><strong>Power Station</strong></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="coal">coal</span>
+              <span class="chip in" data-cargo="heavy-oil">heavy oil</span>
+              <span class="chip in" data-cargo="lng">LNG</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="petroleum-fuels">
+          <div class="industry-head"><strong>Petrol Station</strong><span class="town">in-town</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="petroleum-fuels">petroleum fuels</span>
+            </div>
+          </div>
+        </li>
+        <li class="industry" data-cargos="treated-water">
+          <div class="industry-head"><strong>Water Tower</strong><span class="town">in-town</span></div>
+          <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="treated-water">treated water</span>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -110,12 +421,12 @@
   <h2>The feedback loops</h2>
   <div class="cards">
     <div class="card">
-      <h3>Engineering supplies boost extraction</h3>
-      <p>Delivering engineering supplies to any tier-1 extractive (coal mine, oil wells, natural gas well, oil rig) boosts its output by roughly <strong>+40%</strong>. The supplies themselves come out of tier 4, which means every barrel of crude and tonne of coal you produce feeds back into more crude and more coal down the line.</p>
+      <h3>Engineering supplies</h3>
+      <p>As in standard FIRS — deliver them to a tier-1 extractive for the usual production boost. The plant sits in tier 4, so the loop closes on itself.</p>
     </div>
     <div class="card">
       <h3>Fracking needs fluid</h3>
-      <p>Unlike the other extractives, a fracking well <em>requires</em> fracking fluid deliveries to operate — no fluid, no gas. It rewards you for the long chain you built to make it (chemicals → fracking fluid → well): <strong>~5&times; gas</strong> and <strong>~1&times; condensate</strong> per unit of fluid delivered.</p>
+      <p>Unlike the other extractives, a fracking well <em>requires</em> fracking fluid deliveries to operate — no fluid, no gas. It rewards the long chain you built to feed it (chemicals → fracking fluid → well) with a hefty yield of both gas and condensate.</p>
     </div>
     <div class="card">
       <h3>Treated water for towns</h3>
@@ -124,26 +435,13 @@
   </div>
 </section>
 
-<section id="cargos" class="container">
-  <h2>New cargos in OilTown</h2>
-  <div class="cargo-grid">
-    <div><strong>Treated Water</strong><span>WATR &middot; liquid bulk, potable</span></div>
-    <div><strong>Ethylene</strong><span>ETHY &middot; gas + liquid bulk</span></div>
-    <div><strong>Condensate</strong><span>COND &middot; liquid bulk</span></div>
-    <div><strong>Lubricants</strong><span>LUBR &middot; liquid bulk</span></div>
-    <div><strong>Bitumen</strong><span>BITU &middot; liquid bulk</span></div>
-    <div><strong>Fracking Fluid</strong><span>FFLD &middot; liquid bulk</span></div>
-  </div>
-  <p class="note">In addition, upstream gases (raw gas, LNG, LPG, refinery gas) have had <code>CC_LIQUID_BULK</code> added to their cargo classes so tank wagons and tankers can carry them alongside specialist gas vehicles.</p>
-</section>
-
 <section id="install" class="container">
   <h2>Install</h2>
   <p>Published to BaNaNaS, OpenTTD's online content service — no manual file handling required.</p>
   <ol class="steps">
     <li>
       <h3>Open the online content browser</h3>
-      <p>From the OpenTTD main menu, click <strong>Check online content</strong>.</p>
+      <p>From the OpenTTD main menu, click <strong>Online Content</strong>.</p>
     </li>
     <li>
       <h3>Find the package</h3>
@@ -151,7 +449,7 @@
     </li>
     <li>
       <h3>Enable it and start a new game</h3>
-      <p>Start a new game (temperate climate). In the NewGRF settings, enable <strong>FIRS Forked: Oil Town</strong>. The economy parameter is fixed to Oil Town — no configuration needed.</p>
+      <p>Start a new game. In the NewGRF settings, enable <strong>FIRS Forked: Oil Town</strong>. The economy parameter is fixed to Oil Town — no configuration needed. Sub-tropical climate is not necessary but recommended.</p>
     </li>
   </ol>
   <p class="note">Prefer to build from source? Clone the <a href="https://github.com/TepacheLoco/firs-oiltown" target="_blank" rel="noopener">GitHub repo</a> and follow the build instructions in the README.</p>
@@ -159,7 +457,7 @@
 
 <section id="credits" class="container">
   <h2>Credits &amp; license</h2>
-  <p>Based on <a href="https://github.com/andythenorth/firs" target="_blank" rel="noopener">FIRS</a> by andythenorth and contributors — see the upstream repository for the full list. All sprite art, build tooling, and NewGRF templating is from upstream FIRS. This fork reuses existing FIRS sprite sheets for its new industries rather than producing new art.</p>
+  <p>Based on <a href="https://bundles.openttdcoop.org/firs/releases/LATEST/docs/html/get_started.html" target="_blank" rel="noopener">FIRS</a> by andythenorth and contributors — see the upstream repository for the full list. All sprite art, build tooling, and NewGRF templating is from upstream FIRS. This fork reuses existing FIRS sprite sheets for its new industries rather than producing new art.</p>
   <p>Licensed under GPL v2. See <code>CHANGES.md</code> in the repo root for the fork-diff required by the GPL.</p>
 </section>
 
@@ -167,10 +465,77 @@
 
 <footer>
   <div class="container">
-    <span>OilTown &middot; a FIRS fork &middot; GPL v2</span>
+    <span>Oil Town &middot; a FIRS fork &middot; GPL v2</span>
     <span><a href="https://github.com/TepacheLoco/firs-oiltown" target="_blank" rel="noopener">GitHub</a></span>
   </div>
 </footer>
+
+<script>
+(function() {
+  const filterButtons = document.querySelectorAll('.cargo-filter .chip.filter');
+  const industries = document.querySelectorAll('.industry-grid li.industry');
+  const tierChips = document.querySelectorAll('.industry-flow .chip[data-cargo]');
+  const resetBtn = document.querySelector('.filter-reset');
+  const active = new Set();
+
+  const filterByCargo = new Map();
+  filterButtons.forEach(btn => filterByCargo.set(btn.dataset.cargo, btn));
+
+  const chipsByCargo = new Map();
+  tierChips.forEach(chip => {
+    const cargo = chip.dataset.cargo;
+    if (!chipsByCargo.has(cargo)) chipsByCargo.set(cargo, []);
+    chipsByCargo.get(cargo).push(chip);
+  });
+
+  function render() {
+    resetBtn.disabled = active.size === 0;
+    if (active.size === 0) {
+      industries.forEach(li => {
+        li.classList.remove('dim');
+        li.classList.remove('highlight');
+      });
+      return;
+    }
+    industries.forEach(li => {
+      const cargos = (li.dataset.cargos || '').trim().split(/\s+/);
+      const match = cargos.some(c => active.has(c));
+      li.classList.toggle('dim', !match);
+      li.classList.toggle('highlight', match);
+    });
+  }
+
+  function syncChip(cargo) {
+    const selected = active.has(cargo);
+    const filterBtn = filterByCargo.get(cargo);
+    if (filterBtn) filterBtn.classList.toggle('selected', selected);
+    const chips = chipsByCargo.get(cargo) || [];
+    chips.forEach(c => c.classList.toggle('selected', selected));
+  }
+
+  function toggle(cargo) {
+    if (!cargo) return;
+    if (active.has(cargo)) active.delete(cargo);
+    else active.add(cargo);
+    syncChip(cargo);
+    render();
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => toggle(btn.dataset.cargo));
+  });
+  tierChips.forEach(chip => {
+    chip.addEventListener('click', () => toggle(chip.dataset.cargo));
+  });
+
+  resetBtn.addEventListener('click', () => {
+    const toClear = Array.from(active);
+    active.clear();
+    toClear.forEach(syncChip);
+    render();
+  });
+})();
+</script>
 
 </body>
 </html>

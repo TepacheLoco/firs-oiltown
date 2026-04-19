@@ -9,6 +9,7 @@ industry = IndustrySecondary(
         ("LNG_", 3),
         ("LPG_", 3),
         ("SULP", 2),
+        ("COND", 1),
     ],
     prob_in_game="4",
     prob_map_gen="6",
