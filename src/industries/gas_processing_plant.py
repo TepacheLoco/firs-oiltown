@@ -4,6 +4,7 @@ industry = IndustrySecondary(
     id="gas_processing_plant",
     accept_cargos_with_input_ratios=[
         ("NGAS", 8),
+        ("RGAS", 8),
     ],
     prod_cargo_types_with_output_ratios=[
         ("LNG_", 3),

@@ -14,10 +14,10 @@ cargo = Cargo(
     cargo_label="NAPH",
     units_of_cargo="TTD_STR_LITERS",
     items_of_cargo="string(STR_CARGO_UNIT_NAPHTHA)",
-    penalty_lowerbound="18",
-    single_penalty_length="255",
+    penalty_lowerbound="5",
+    single_penalty_length="20",
     capacity_multiplier="1",
-    price_factor=103,
+    price_factor=130,
     icon_indices=(12, 1),
     sprites_complete=False,
 )

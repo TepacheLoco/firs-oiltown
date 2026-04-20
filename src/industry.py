@@ -508,6 +508,10 @@ class IndustryProperties(object):
         self.prod_cargo_types_with_output_ratios = kwargs.get(
             "prod_cargo_types_with_output_ratios", None
         )
+        # when True, a secondary industry produces nothing unless every input cargo has been delivered within the rolling 27-cycle supply window
+        self.require_all_inputs_for_production = kwargs.get(
+            "require_all_inputs_for_production", None
+        )
         self.prod_multiplier = kwargs.get("prod_multiplier", None)
         self.override_default_construction_states = kwargs.get(
             "override_default_construction_states", False
@@ -1101,10 +1105,15 @@ class Industry(object):
         accept_cargos_with_ratios = self.get_property(
             "accept_cargos_with_input_ratios", economy
         )
+        gated = self.get_property("require_all_inputs_for_production", economy)
         if len(accept_cargos_with_ratios) == 1:
             extra_text_string = "STR_EMPTY"  # nothing useful to show where just one cargo is accepted eh
         elif len(accept_cargos_with_ratios) == 2:
-            extra_text_string = "STR_EXTRA_TEXT_SECONDARY_COMBINATORY_BOTH"
+            extra_text_string = (
+                "STR_EXTRA_TEXT_SECONDARY_GATED_BOTH"
+                if gated
+                else "STR_EXTRA_TEXT_SECONDARY_COMBINATORY_BOTH"
+            )
         else:
             # below here is increasingly JFDI and may well go wrong if industries are inappropriately configured
             max_ratio = sum(
@@ -1112,7 +1121,11 @@ class Industry(object):
             )
             if max_ratio == 8:
                 # common case, industry is configured so that ratios sum to 8
-                extra_text_string = "STR_EXTRA_TEXT_SECONDARY_COMBINATORY_ALL"
+                extra_text_string = (
+                    "STR_EXTRA_TEXT_SECONDARY_GATED_ALL"
+                    if gated
+                    else "STR_EXTRA_TEXT_SECONDARY_COMBINATORY_ALL"
+                )
             elif int(max_ratio / len(accept_cargos_with_ratios)) == 8:
                 # less common case: all ratios are 8, so there is no combination
                 # to prevent surprises we guard on known industry ids
@@ -1148,6 +1161,15 @@ class Industry(object):
                     )
                 extra_text_string = "STR_EXTRA_TEXT_SECONDARY_COMBINATORY_ANY_TWO"
         return "string(" + extra_text_string + ")"
+
+    def get_extra_text_maintain_string(self, economy):
+        # MAINTAIN variant used at runtime when a gated secondary has all inputs currently supplied
+        accept_cargos_with_ratios = self.get_property(
+            "accept_cargos_with_input_ratios", economy
+        )
+        if len(accept_cargos_with_ratios) == 2:
+            return "string(STR_EXTRA_TEXT_SECONDARY_MAINTAIN_BOTH)"
+        return "string(STR_EXTRA_TEXT_SECONDARY_MAINTAIN_ALL)"
 
     def get_intro_year(self, economy):
         # simple wrapper to get_property(), which sanitises intro_year from None to 0 if unspecified by economy

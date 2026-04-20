@@ -34,12 +34,13 @@ industry.enable_in_economy(
         ("LUBR", 2),
         ("BITU", 2),
         ("COKE", 2),
-        ("ETHY", 1),
+        ("PLAS", 1),
         ("CTAR", 1),
     ],
     prod_cargo_types_with_output_ratios=[
         ("ENSP", 8),
     ],
+    require_all_inputs_for_production=True,
 )
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('CMNT', 8), ('PETR', 8), ('VEHI', 8), ('BOOM', 8), ('WDPR', 8)]
 

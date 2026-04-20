@@ -32,6 +32,7 @@ industry.enable_in_economy(
     prod_cargo_types_with_output_ratios=[
         ("FERT", 8),
     ],
+    require_all_inputs_for_production=True,
 )
 
 industry.add_tile(

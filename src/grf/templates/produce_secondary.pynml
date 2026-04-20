@@ -12,8 +12,16 @@
     produce (${industry.id}_produce_${economy.numeric_id},
         [
             <tal:subtract repeat="cargo industry.get_property('accept_cargos_with_input_ratios', economy)">
-                <!--! !!! assume just subtracting all for now, don't faff around with remaindered amounts -->
-                ${cargo[0]}: incoming_cargo_waiting("${cargo[0]}");
+                <tal:if_gated condition="industry.get_property('require_all_inputs_for_production', economy)">
+                    <!--! gated industries: only consume inputs when the gate has let production through (ratio > 0).
+                          while gated we keep a buffer (cap 32 units) of each cargo so the truck that completes the
+                          set kicks off a real batch, but cargo above the cap is wasted to prevent unbounded piles. -->
+                    ${cargo[0]}: LOAD_PERM(${get_perm_num("current_production_ratio")}) > 0 ? incoming_cargo_waiting("${cargo[0]}") : max(0, incoming_cargo_waiting("${cargo[0]}") - 32);
+                </tal:if_gated>
+                <tal:if_ungated condition="not industry.get_property('require_all_inputs_for_production', economy)">
+                    <!--! !!! assume just subtracting all for now, don't faff around with remaindered amounts -->
+                    ${cargo[0]}: incoming_cargo_waiting("${cargo[0]}");
+                </tal:if_ungated>
             </tal:subtract>
         ],
         [
@@ -62,6 +70,17 @@
                     )
                 ),
             </tal:input_cargos>
+            <tal:gate_if_all_inputs_required condition="industry.get_property('require_all_inputs_for_production', economy)">
+                <!--! hard gate: if any required input is missing from the 27-cycle supply window, zero the ratio
+                      chained ternary is right-associative in nml, so `c1 ? 0 : c2 ? 0 : orig` = `c1 ? 0 : (c2 ? 0 : orig)` -->
+                STORE_PERM_ALT(
+                    ${get_perm_num("current_production_ratio")},
+                    <tal:missing_check repeat="input_cargo industry.get_property('accept_cargos_with_input_ratios', economy)">
+                        (LOAD_PERM(${get_perm_num("supplied_cycles_remaining_cargo_" + str(repeat.input_cargo.number))}) == 0) ? 0 :
+                    </tal:missing_check>
+                    LOAD_PERM(${get_perm_num("current_production_ratio")})
+                ),
+            </tal:gate_if_all_inputs_required>
             0 <!--! spurious 0 because nmlc was running into a parse error without it - this is actually due to empty lists in some economies-->
         ]) {
         return 0;

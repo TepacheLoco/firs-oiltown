@@ -93,6 +93,18 @@ base = "{BLACK}For maximum production rate, supply {WHITE}at least two {BLACK}re
 [STR_EXTRA_TEXT_SECONDARY_COMBINATORY_ANY_THREE]
 base = "{BLACK}For maximum production rate, supply {WHITE}at least three {BLACK}required cargos at least once every three minutes."
 
+[STR_EXTRA_TEXT_SECONDARY_GATED_BOTH]
+base = "{BLACK}To resume production, supply {WHITE}both {BLACK}required cargos at least once every three minutes."
+
+[STR_EXTRA_TEXT_SECONDARY_GATED_ALL]
+base = "{BLACK}To resume production, supply {WHITE}all {BLACK}required cargos at least once every three minutes."
+
+[STR_EXTRA_TEXT_SECONDARY_MAINTAIN_BOTH]
+base = "{BLACK}To maintain production, supply {WHITE}both {BLACK}required cargos at least once every three minutes."
+
+[STR_EXTRA_TEXT_SECONDARY_MAINTAIN_ALL]
+base = "{BLACK}To maintain production, supply {WHITE}all {BLACK}required cargos at least once every three minutes."
+
 [STR_EXTRA_TEXT_TOWN_PRODUCER]
 base = "{BLACK}Production is proportional to town population. At least {WHITE}{SIGNED_WORD} units{BLACK} and not more than {WHITE}{SIGNED_WORD} units{BLACK} of cargo will be produced every minute."
 

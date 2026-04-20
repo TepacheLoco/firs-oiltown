@@ -71,3 +71,41 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 
 - The FIRS code already supported monkey-patching `industry.get_graphics_file_path` to reuse another industry's PNG. This fork leans heavily on that technique rather than producing new sprite art — see the sprite-sheet attribution notes on each new industry above.
 - No changes to the upstream FIRS build system, NML templates, or Game Script other than adding economy data.
+
+
+## 2026-04-20 — OilTown 5.2.0.1
+
+### New gameplay: "all inputs required" secondary industries
+
+- **`src/industry.py`** — added `require_all_inputs_for_production` property on `IndustryProperties`. When set on a secondary industry (per-economy), production is gated: the ratio stores zero unless every input's `supplied_cycles_remaining_cargo_N` register is > 0.
+- **`src/grf/templates/produce_secondary.pynml`** — emits a chained-ternary gate after the existing ratio accumulator; emits conditional consumption in the `produce` callback so gated industries buffer up to 32 units per input while blocked (cargo above the cap is wasted), letting the truck that completes the set feed a real batch of output.
+- **`src/grf/templates/extra_text_secondary.pynml`** — per-gated-economy sub-switch picks "resume" vs "maintain" text from runtime supplied-cycle state.
+- **`src/grf/lang/english.toml`** — added `STR_EXTRA_TEXT_SECONDARY_GATED_BOTH`, `STR_EXTRA_TEXT_SECONDARY_GATED_ALL`, `STR_EXTRA_TEXT_SECONDARY_MAINTAIN_BOTH`, `STR_EXTRA_TEXT_SECONDARY_MAINTAIN_ALL`.
+- Flag set in the OIL_TOWN economy variation for: `bitumen_plant`, `chemical_plant`, `fertiliser_plant`, `fracking_fluid_plant`, `lubricants_plant`, `petroleum_fuels_depot`, `plastics_plant`, `supply_yard`. Oil refinery and cracking plant deliberately left linear.
+
+### Cargo payment-curve retuning (OIL_TOWN)
+
+Three-tier spread applied across all OIL_TOWN cargos in `src/cargos/*.py`:
+
+- **Stable** (`penalty_lowerbound=50, single_penalty_length=255`): oil, condensate, heavy_oil, sulphur, coke, coal_tar, treated_water, fertiliser, engineering_supplies, bitumen, plastics.
+- **Medium** (`15, 75`): light_oil, raw_gas, refinery_gas, lng, lpg, lubricants, fracking_fluid, petrol, chemicals.
+- **Volatile** (`5, 20`): ethylene, naphtha.
+
+`price_factor` adjusted where the curve change shifted expected payout substantially: engineering_supplies 178→115, plastics 133→105, bitumen 110→90, fertiliser 123→105, naphtha 103→130.
+
+### Industry behaviour
+
+- **`src/industries/oil_trading_port.py`** (Fuel Terminal) — reclassified from `IndustryPrimaryPort` to `IndustryTertiary`. Pure sink, no production multipliers, no return cargo. Accepts crude, light oil, heavy oil, petrol, LNG, LPG.
+- **`src/industries/desalination_plant.py`** — reclassified from `IndustryPrimaryPort` to `IndustryPrimaryExtractive` so ENSP deliveries drive the standard supply-requirements production boost. Auto-accepts ENSP via the base class.
+- **`src/industries/oil_refinery.py`** — OIL_TOWN economy variation accepts crude oil and condensate as alternative inputs at 8/8 ratios each (either alone yields full production); explicitly not gated.
+- **`src/industries/petrol_pump.py`** — added OIL_TOWN economy variation, accepts `PETR` only. In-town tertiary sink.
+- **`src/industries/supply_yard.py`** — OIL_TOWN recipe updated: swapped `ETHY` for `PLAS` (ratios unchanged; sum still 8).
+- **`src/industries/gas_processing_plant.py`** — added `("RGAS", 8)` alongside `("NGAS", 8)` as alternative feedstock. Either alone caps the ratio at 8 → full production (same pattern as Oil Refinery's OIL_/COND).
+
+### Cargo classes
+
+- **`src/cargos/sulphur.py`** — restored `CC_COVERED_BULK` alongside `CC_OPEN_BULK` and `CC_NON_POTABLE` so covered-hopper bulk trucks refit to sulphur.
+
+### Root
+
+- **`CLAUDE.md`** — build-and-install notes for Claude Code agents (manual pipeline because `make` doesn't work on the Windows checkout).

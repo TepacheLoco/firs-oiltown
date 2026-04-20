@@ -34,6 +34,7 @@ industry.get_graphics_file_path = _reuse_oil_refinery_graphics
 industry.enable_in_economy(
     "OIL_TOWN",
     prod_cargo_types_with_output_ratios=[("PETR", 8)],
+    require_all_inputs_for_production=True,
 )
 
 industry.add_tile(
