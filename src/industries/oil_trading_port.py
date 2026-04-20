@@ -1,21 +1,21 @@
-from industry import IndustryPrimaryPort, TileLocationChecks
+from industry import IndustryTertiary, TileLocationChecks
 
-industry = IndustryPrimaryPort(
+industry = IndustryTertiary(
     id="oil_trading_port",
     accept_cargo_types=[],
-    prod_cargo_types_with_multipliers=[],
     prob_in_game="4",
     prob_map_gen="5",
+    prod_multiplier="[0, 0]",
     map_colour="45",
     colour_scheme_name="scheme_9_shania",
     special_flags=["IND_FLAG_BUILT_ON_WATER"],
     location_checks=dict(same_type_distance=32),
+    life_type="IND_LIFE_TYPE_BLACK_HOLE",
     prospect_chance="0.75",
     name="string(STR_IND_OIL_TRADING_PORT)",
     nearby_station_name="string(STR_STATION_OIL_TRADING_PORT)",
     fund_cost_multiplier="152",
     override_default_construction_states=True,
-    primary_production_random_factor_set="medium_range",
     sprites_complete=True,
     animated_tiles_fixed=True,
 )
@@ -23,7 +23,6 @@ industry = IndustryPrimaryPort(
 industry.enable_in_economy(
     "OIL_TOWN",
     accept_cargo_types=["OIL_", "LOIL", "HOIL", "PETR", "LNG_", "LPG_"],
-    prod_cargo_types_with_multipliers=[],
 )
 
 industry.add_tile(

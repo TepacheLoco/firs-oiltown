@@ -15,7 +15,7 @@
 
 <header class="hero">
   <div class="container">
-    <div class="tag">FIRS 5.2.0 fork &middot; GPL v2</div>
+    <div class="tag">FIRS 5.2.0.1 fork &middot; GPL v2</div>
     <h1>FIRS Forked: <span class="accent">Oil Town</span></h1>
     <p class="lede">A single-economy FIRS fork for OpenTTD by TepacheLoco. Everything revolves around oil and gas: pump it, refine it, crack it, ship it, burn it.</p>
     <div class="cta-row">
@@ -128,16 +128,20 @@
             </div>
           </div>
         </li>
-        <li class="industry" data-cargos="treated-water">
+        <li class="industry" data-cargos="engineering-supplies treated-water">
           <div class="industry-head"><strong>Desalination Plant</strong><span class="coastal">coastal</span></div>
           <div class="industry-flow">
+            <div class="flow-group inputs">
+<span class="chip in" data-cargo="engineering-supplies">engineering supplies</span>
+            </div>
+            <span class="flow-divider" aria-hidden="true"></span>
             <div class="flow-group outputs">
 <span class="chip out" data-cargo="treated-water">treated water</span>
             </div>
           </div>
         </li>
         <li class="industry" data-cargos="fracking-fluid raw-gas condensate">
-          <div class="industry-head"><strong>Fracking Well</strong><span class="warn">requires fluid</span></div>
+          <div class="industry-head"><strong>Fracking Well</strong><a class="warn chip-link" href="#feature-fracking">requires fluid</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="fracking-fluid">fracking fluid</span>
@@ -174,11 +178,12 @@
             </div>
           </div>
         </li>
-        <li class="industry" data-cargos="raw-gas lng lpg sulphur condensate">
+        <li class="industry" data-cargos="raw-gas refinery-gas lng lpg sulphur condensate">
           <div class="industry-head"><strong>Gas Processing Plant</strong></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="raw-gas">raw gas</span>
+              <span class="chip in" data-cargo="refinery-gas">refinery gas</span>
             </div>
             <span class="flow-divider" aria-hidden="true"></span>
             <div class="flow-group outputs">
@@ -227,7 +232,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="ethylene sulphur treated-water chemicals">
-          <div class="industry-head"><strong>Chemical Plant</strong></div>
+          <div class="industry-head"><strong>Chemical Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="ethylene">ethylene</span>
@@ -241,7 +246,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="chemicals treated-water fracking-fluid">
-          <div class="industry-head"><strong>Fracking Fluid Plant</strong></div>
+          <div class="industry-head"><strong>Fracking Fluid Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="chemicals">chemicals</span>
@@ -263,7 +268,7 @@
       </div>
       <ul class="industry-grid">
         <li class="industry" data-cargos="heavy-oil lng lubricants">
-          <div class="industry-head"><strong>Lubricants Plant</strong></div>
+          <div class="industry-head"><strong>Lubricants Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="heavy-oil">heavy oil</span>
@@ -276,7 +281,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="heavy-oil coke bitumen">
-          <div class="industry-head"><strong>Bitumen Plant</strong></div>
+          <div class="industry-head"><strong>Bitumen Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="heavy-oil">heavy oil</span>
@@ -289,7 +294,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="ethylene chemicals plastics">
-          <div class="industry-head"><strong>Plastics Plant</strong></div>
+          <div class="industry-head"><strong>Plastics Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="ethylene">ethylene</span>
@@ -302,7 +307,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="lng sulphur chemicals fertiliser">
-          <div class="industry-head"><strong>Fertiliser Plant</strong></div>
+          <div class="industry-head"><strong>Fertiliser Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="lng">LNG</span>
@@ -316,7 +321,7 @@
           </div>
         </li>
         <li class="industry" data-cargos="light-oil chemicals lubricants petroleum-fuels">
-          <div class="industry-head"><strong>Petroleum Refinery</strong></div>
+          <div class="industry-head"><strong>Petroleum Refinery</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="light-oil">light oil</span>
@@ -329,14 +334,14 @@
             </div>
           </div>
         </li>
-        <li class="industry" data-cargos="lubricants bitumen coke ethylene coal-tar engineering-supplies">
-          <div class="industry-head"><strong>Engineering Supplies Plant</strong></div>
+        <li class="industry" data-cargos="lubricants bitumen coke plastics coal-tar engineering-supplies">
+          <div class="industry-head"><strong>Engineering Supplies Plant</strong><a class="warn chip-link" href="#feature-gated">gated</a></div>
           <div class="industry-flow">
             <div class="flow-group inputs">
 <span class="chip in" data-cargo="lubricants">lubricants</span>
               <span class="chip in" data-cargo="bitumen">bitumen</span>
               <span class="chip in" data-cargo="coke">coke</span>
-              <span class="chip in" data-cargo="ethylene">ethylene</span>
+              <span class="chip in" data-cargo="plastics">plastics</span>
               <span class="chip in" data-cargo="coal-tar">coal tar</span>
             </div>
             <span class="flow-divider" aria-hidden="true"></span>
@@ -417,20 +422,28 @@
   </div>
 </section>
 
-<section id="feedback-loops" class="container">
-  <h2>The feedback loops</h2>
+<section id="features" class="container">
+  <h2>Features</h2>
   <div class="cards">
     <div class="card">
       <h3>Engineering supplies</h3>
       <p>As in standard FIRS — deliver them to a tier-1 extractive for the usual production boost. The plant sits in tier 4, so the loop closes on itself.</p>
     </div>
-    <div class="card">
+    <div class="card" id="feature-fracking">
       <h3>Fracking needs fluid</h3>
       <p>Unlike the other extractives, a fracking well <em>requires</em> fracking fluid deliveries to operate — no fluid, no gas. It rewards the long chain you built to feed it (chemicals → fracking fluid → well) with a hefty yield of both gas and condensate.</p>
     </div>
     <div class="card">
       <h3>Treated water for towns</h3>
       <p>Treated water has the same town-delivery effect food has in other FIRS economies: haul it to a water tower and you'll see the usual growth / happiness bonus kick in.</p>
+    </div>
+    <div class="card" id="feature-gated">
+      <h3>Gated production</h3>
+      <p>Most tier-3 and tier-4 plants halt production unless every required input has been delivered within the last three minutes — deliver the missing cargo and the next truck through kicks off a fresh batch.</p>
+    </div>
+    <div class="card">
+      <h3>Cargo-value spread</h3>
+      <p>Cargos split into three stability tiers: stable cargos (oil, sulphur, fertiliser, plastics, bitumen, etc.) barely lose value over distance, medium decays at the normal rate, and volatile cargos (ethylene, naphtha) reward short, express routes.</p>
     </div>
   </div>
 </section>

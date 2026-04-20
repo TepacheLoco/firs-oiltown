@@ -28,6 +28,11 @@ industry.enable_in_economy(
     "IN_A_HOT_COUNTRY",
 )
 
+industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargo_types=["PETR"],
+)
+
 
 industry.add_tile(
     id="petrol_pump_tile_1",

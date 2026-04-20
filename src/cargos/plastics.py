@@ -12,10 +12,10 @@ cargo = Cargo(
     cargo_label="PLAS",
     units_of_cargo="TTD_STR_LITERS",
     items_of_cargo="string(STR_CARGO_UNIT_PLASTICS)",
-    penalty_lowerbound="12",
-    single_penalty_length="36",
+    penalty_lowerbound="50",
+    single_penalty_length="255",
     capacity_multiplier="1",
-    price_factor=133,
+    price_factor=105,
     icon_indices=(6, 4),
     sprites_complete=True,
 )

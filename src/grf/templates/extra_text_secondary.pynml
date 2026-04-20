@@ -1,8 +1,30 @@
 <!--! Extra text in the industry window (callback 3A) -->
 
+<!--! for gated economies, emit a sub-switch that picks RESUME text when any input is missing
+      (supplied_cycles_remaining == 0) and MAINTAIN text when all inputs are in the window.
+      the product over (LOAD_PERM(s) > 0) terms is 0 if any is missing, 1 if all are present. -->
+<tal:economies repeat="economy industry.economies_enabled_for_industry">
+    <tal:if_gated condition="industry.get_property('require_all_inputs_for_production', economy)">
+        switch (FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text_gated_${economy.numeric_id},
+            <tal:cargos repeat="input_cargo industry.get_property('accept_cargos_with_input_ratios', economy)">
+                <tal:multiplier condition="not repeat.input_cargo.start"> * </tal:multiplier>
+                (LOAD_PERM(${get_perm_num("supplied_cycles_remaining_cargo_" + str(repeat.input_cargo.number))}) > 0)
+            </tal:cargos>
+        ) {
+            0: return ${industry.get_extra_text_string(economy)};
+            return ${industry.get_extra_text_maintain_string(economy)};
+        }
+    </tal:if_gated>
+</tal:economies>
+
 switch (FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text, economy) {
     <tal:economies repeat="economy industry.economies_enabled_for_industry">
-        ${economy.numeric_id}: return ${industry.get_extra_text_string(economy)};
+        <tal:if_gated condition="industry.get_property('require_all_inputs_for_production', economy)">
+            ${economy.numeric_id}: ${industry.id}_extra_text_gated_${economy.numeric_id};
+        </tal:if_gated>
+        <tal:if_ungated condition="not industry.get_property('require_all_inputs_for_production', economy)">
+            ${economy.numeric_id}: return ${industry.get_extra_text_string(economy)};
+        </tal:if_ungated>
     </tal:economies>
 }
 

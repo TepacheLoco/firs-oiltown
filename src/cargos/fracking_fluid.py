@@ -12,10 +12,10 @@ cargo = Cargo(
     cargo_label="FFLD",
     units_of_cargo="TTD_STR_LITERS",
     items_of_cargo="string(STR_CARGO_UNIT_FRACKING_FLUID)",
-    penalty_lowerbound="8",
-    single_penalty_length="40",
+    penalty_lowerbound="15",
+    single_penalty_length="75",
     price_factor=120,
     capacity_multiplier="1",
-    icon_indices=(15, 5),
+    icon_indices=(4, 4),
     sprites_complete=False,
 )

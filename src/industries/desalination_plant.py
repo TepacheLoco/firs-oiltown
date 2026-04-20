@@ -1,8 +1,7 @@
-from industry import IndustryPrimaryPort, TileLocationChecks
+from industry import IndustryPrimaryExtractive, TileLocationChecks
 
-industry = IndustryPrimaryPort(
+industry = IndustryPrimaryExtractive(
     id="desalination_plant",
-    accept_cargo_types=[],
     prod_cargo_types_with_multipliers=[],
     prob_in_game="4",
     prob_map_gen="5",
@@ -35,7 +34,6 @@ industry.get_graphics_file_path = _reuse_oil_trading_port_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
-    accept_cargo_types=[],
     prod_cargo_types_with_multipliers=[("WATR", 16)],
 )
 

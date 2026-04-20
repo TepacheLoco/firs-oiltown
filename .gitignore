@@ -6,3 +6,7 @@
 
 # The local makefile should be ignored:
 Makefile.local
+claudecontext.txt
+.claude/settings.local.json
+CLAUDE.md
+/src/cargos/__pycache__

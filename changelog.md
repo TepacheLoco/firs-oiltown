@@ -2,6 +2,41 @@ Changelog
 =========
 
 --------------
+5.2.0.1 Release (OilTown)
+--------------
+
+
+*New gameplay — "all inputs required" secondary industries*
+
+- Added a `require_all_inputs_for_production` flag for secondary industries in OIL_TOWN. When set, the industry produces nothing unless every required input has been delivered within the rolling 27-cycle (~3 minute) supply window.
+- Flag applied to: Bitumen Plant, Chemical Plant, Fertiliser Plant, Fracking Fluid Plant, Lubricants Plant, Petroleum Refinery, Plastics Plant, Engineering Supplies Plant.
+- Oil Refinery and Cracking Plant remain linear — either input alone yields partial (or full) production.
+- While the gate is blocking, delivered cargo is buffered (not consumed) up to 32 units per input so the truck that completes the set kicks off a real batch of output; excess is wasted to prevent unbounded pile-up.
+- Industry window extra-text shows "To resume production, supply all required cargos at least once every three minutes" while blocked, switching to "To maintain production, ..." once all inputs are currently supplied.
+
+*Cargo payment-curve retuning*
+
+- Three-tier volatility spread for OIL_TOWN cargos:
+  - **Stable** (`penalty_lowerbound=50, single_penalty_length=255`): oil, condensate, heavy oil, sulphur, coke, coal tar, treated water, fertiliser, engineering supplies, bitumen, plastics.
+  - **Medium** (`15, 75`): light oil, raw gas, refinery gas, LNG, LPG, lubricants, fracking fluid, petrol, chemicals.
+  - **Volatile** (`5, 20`): ethylene, naphtha.
+- Price-factor adjusted where the curve change shifted expected payout dramatically: engineering supplies 178→115, plastics 133→105, bitumen 110→90, fertiliser 123→105, naphtha 103→130.
+
+*Industry behaviour changes*
+
+- Fuel Terminal (Oil Trading Port) converted to pure tertiary sink — accepts crude, light oil, heavy oil, petrol, LNG, LPG with no production multipliers or return cargo.
+- Desalination Plant converted to `IndustryPrimaryExtractive` so engineering supplies deliveries boost water production the same way the Natural Gas Well responds to them.
+- Oil Refinery in OIL_TOWN now accepts crude oil (`OIL_`) **or** condensate (`COND`) — either alone gives full production.
+- Petrol Pump (Petrol Station) enabled in OIL_TOWN as an in-town tertiary accepting petrol only.
+- Engineering Supplies Plant recipe swapped ethylene for plastics: now `LUBR` + `BITU` + `COKE` + `PLAS` + `CTAR` → `ENSP`.
+- Gas Processing Plant now accepts refinery gas (`RGAS`) as an alternative feedstock to raw gas (`NGAS`) — either alone gives full production. Creates a back-and-forth loop with Oil Refinery (refinery gas flows one way, condensate the other).
+
+*Cargo classes*
+
+- Sulphur: restored `CC_COVERED_BULK` alongside `CC_OPEN_BULK` so covered-hopper bulk trucks refit to it.
+
+
+--------------
 5.2.0 Release
 --------------
 
