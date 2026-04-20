@@ -105,7 +105,3 @@ Three-tier spread applied across all OIL_TOWN cargos in `src/cargos/*.py`:
 ### Cargo classes
 
 - **`src/cargos/sulphur.py`** — restored `CC_COVERED_BULK` alongside `CC_OPEN_BULK` and `CC_NON_POTABLE` so covered-hopper bulk trucks refit to sulphur.
-
-### Root
-
-- **`CLAUDE.md`** — build-and-install notes for Claude Code agents (manual pipeline because `make` doesn't work on the Windows checkout).
