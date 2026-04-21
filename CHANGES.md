@@ -73,6 +73,20 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - No changes to the upstream FIRS build system, NML templates, or Game Script other than adding economy data.
 
 
+## 2026-04-21 — OilTown 5.2.0.2
+
+### Visual: secondary industries go dormant when not producing
+
+- **`src/global_constants.py`** — added graphics temp register `var_production_gate_closed=21`.
+- **`src/grf/templates/graphics_switches.pynml`** — for every secondary industry (`industry.template == 'industry_secondary.pynml'`), emit a `FEAT_INDUSTRYTILES, PARENT` switch `<industry>_switch_production_gate_closed` that returns `(LOAD_PERM(current_production_ratio) == 0)`. Its result is stored into temp register 21 at the top of `<industry>_switch_graphics`. The same signal covers both semantics: for `require_all_inputs_for_production` economies the hard gate in `produce_secondary.pynml` forces the ratio to 0 when any input is missing; for ungated secondaries the ratio is 0 whenever no accepted cargo has been delivered in the rolling 27-cycle window.
+- **`src/grf/templates/spritelayouts_industry.pynml`** — the smoke building block's `hide_sprite` now ORs `LOAD_TEMP(21)` with the existing per-smoke-type expression, so smoke/fire sprites hide while the production gate is closed. Harmless for primary/tertiary industries (register is never written; `LOAD_TEMP` defaults to 0).
+- Affects every secondary with smoke — notably the four OIL_TOWN gated secondaries that declare smoke today (bitumen_plant 3 plumes, chemical_plant 9, fertiliser_plant 9, fracking_fluid_plant 2), plus every other secondary across all economies that has smoke_sprites. Ungated secondaries now also stop smoking if no input has arrived in ~3 minutes.
+
+### Cargo icons
+
+- Added a new row of 10 fresh icons in `src/graphics/cargoicons.png` at row 7 and re-pointed 10 fork cargoes so they no longer share placeholder art: treated_water (0,7), ethylene (1,7), fracking_fluid (2,7), heavy_oil (3,7), light_oil (4,7), condensate (5,7), raw_gas (6,7), lng (7,7), lpg (8,7), refinery_gas (9,7). Flipped `sprites_complete=True` on all ten. Cleared animated palette index 228 from the heavy_oil and raw_gas tiles.
+
+
 ## 2026-04-20 — OilTown 5.2.0.1
 
 ### New gameplay: "all inputs required" secondary industries

@@ -209,7 +209,10 @@
         </tal:magic_trees>
 
         <tal:optional_smoke repeat="smoke_sprite spritelayout.smoke_sprites">
-            <!--! smoke sprites -->
+            <!--! smoke sprites — OR the per-smoke-type frame-phase hide with the production-gate temp
+                  so gated industries stop smoking when current_production_ratio == 0 in the current economy.
+                  For non-gated industries the temp register is never written so LOAD_TEMP returns 0 and
+                  smoke behaves identically to before. -->
             building {
                 sprite: ${smoke_sprite.sprite_number};
                 recolour_mode: RECOLOUR_REMAP;
@@ -220,7 +223,7 @@
                 xextent: ${smoke_sprite.xextent};
                 yextent: ${smoke_sprite.yextent};
                 zextent: ${smoke_sprite.zextent};
-                hide_sprite: ${smoke_sprite.hide_sprite};
+                hide_sprite: (${smoke_sprite.hide_sprite}) || LOAD_TEMP(${graphics_temp_storage.var_production_gate_closed});
             }
         </tal:optional_smoke>
 
