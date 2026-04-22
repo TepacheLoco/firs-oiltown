@@ -75,6 +75,11 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 
 ## 2026-04-21 — OilTown 5.2.0.2
 
+### Town sinks for food and treated water
+
+- **`src/industries/hotel.py`** — added OIL_TOWN economy variation accepting `FOOD` + `WATR` (in-town tertiary sink).
+- **`src/industries/general_store.py`** — same; added OIL_TOWN economy variation accepting `FOOD` + `WATR`.
+
 ### Visual: secondary industries go dormant when not producing
 
 - **`src/global_constants.py`** — added graphics temp register `var_production_gate_closed=21`.

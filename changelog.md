@@ -6,6 +6,11 @@ Changelog
 --------------
 
 
+*New town sinks for food and water*
+
+- Hotel and General Store enabled in OIL_TOWN as tertiary sinks, both accepting food and treated water. Gives food a second drop-off (alongside Trading Port) and treated water a second drop-off (alongside Water Tower).
+
+
 *Visual — secondary industries go dormant when not producing*
 
 - Every secondary industry now stops emitting smoke/fire sprites when it isn't producing:
