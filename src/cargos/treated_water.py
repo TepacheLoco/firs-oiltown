@@ -16,7 +16,7 @@ cargo = Cargo(
     single_penalty_length="255",
     price_factor=80,
     capacity_multiplier="1",
-    icon_indices=(7, 1),
+    icon_indices=(0, 7),
     vulcan_town_effect="VTE_HAPPINESS",
-    sprites_complete=False,
+    sprites_complete=True,
 )

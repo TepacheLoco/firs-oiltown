@@ -47,6 +47,11 @@ industry.enable_in_economy(
     "IN_A_HOT_COUNTRY",
 )
 
+industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargo_types=["FOOD", "WATR"],
+)
+
 industry.add_tile(
     id="hotel_tile_1",
     location_checks=TileLocationChecks(

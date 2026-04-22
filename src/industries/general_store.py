@@ -47,6 +47,11 @@ industry.enable_in_economy(
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargo_types = ['FOOD', 'GOOD', 'BEER', 'TEXT']
 
 industry.enable_in_economy(
+    "OIL_TOWN",
+    accept_cargo_types=["FOOD", "WATR"],
+)
+
+industry.enable_in_economy(
     "STEELTOWN",
     accept_cargo_types=[
         "FOOD",

@@ -36,11 +36,23 @@ switch(FEAT_INDUSTRYTILES, SELF, ${industry.id}_industry_construction_state_grap
     ${industry.id + '_industry_graphics_switch_layouts' if len(industry.industry_layouts) > 1 else industry.industry_layouts[0].id + '_graphics_switch'}; // default
 }
 
+<!--! secondary production gate: reads the parent industry's current_production_ratio and returns 1
+      when it's 0 — which covers both gated semantics (any required input missing in 27-cycle window
+      forces ratio to 0 via the hard gate in produce_secondary.pynml) AND ungated semantics (ratio
+      accumulates per-supplied-input, so 0 ⇔ no accepted cargo has been delivered recently).
+      Used to suppress smoke/fire sprites so secondaries appear dormant when not producing. -->
+<tal:production_gate_switch condition="industry.template == 'industry_secondary.pynml'">
+    switch(FEAT_INDUSTRYTILES, PARENT, ${industry.id}_switch_production_gate_closed, 1) {
+        return (LOAD_PERM(${get_perm_num("current_production_ratio")}) == 0);
+    }
+</tal:production_gate_switch>
+
 switch (FEAT_INDUSTRYTILES, SELF, ${industry.id}_switch_graphics, [
                                     switch_tile_fences_industry(),
                                     switch_terrain_industry(),
                                     switch_tile_buildings(),
                                     ${'switch_magic_trees(),' if industry.uses_magic_trees else ''}
+                                    ${'STORE_TEMP(' + industry.id + '_switch_production_gate_closed(), ' + str(graphics_temp_storage['var_production_gate_closed']) + '),' if industry.template == 'industry_secondary.pynml' else ''}
                                     STORE_TEMP(switch_industry_tile_is_water(), ${graphics_temp_storage.var_tile_is_built_on_water}),
                                     STORE_TEMP(random_bits, ${graphics_temp_storage.var_random_bits})
                                  ]) {

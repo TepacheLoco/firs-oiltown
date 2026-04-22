@@ -2,6 +2,28 @@ Changelog
 =========
 
 --------------
+5.2.0.2 Release (OilTown)
+--------------
+
+
+*New town sinks for food and water*
+
+- Hotel and General Store enabled in OIL_TOWN as tertiary sinks, both accepting food and treated water. Gives food a second drop-off (alongside Trading Port) and treated water a second drop-off (alongside Water Tower).
+
+
+*Visual — secondary industries go dormant when not producing*
+
+- Every secondary industry now stops emitting smoke/fire sprites when it isn't producing:
+  - Gated secondaries (Bitumen, Chemical, Fertiliser, Fracking Fluid Plant, Lubricants, Petroleum Refinery, Plastics, Engineering Supplies): smoke stops as soon as any required input falls out of the 27-cycle supply window.
+  - Ungated secondaries (Oil Refinery, Cracking Plant, Coking Plant, Gas Processing Plant, etc.): smoke stops when *no* accepted cargo has been delivered in the last ~3 minutes.
+- Smoke resumes within one production cycle of the industry going back to work.
+
+*Cargo icons*
+
+- 10 fresh cargo icons drawn for: Treated Water, Ethylene, Fracking Fluid, Heavy Oil, Light Oil, Condensate, Raw Gas, LNG, LPG, Refinery Gas. Previously these shared placeholder art.
+
+
+--------------
 5.2.0.1 Release (OilTown)
 --------------
 
