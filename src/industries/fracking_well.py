@@ -26,6 +26,8 @@ industry.get_graphics_file_path = _reuse_oil_refinery_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="6",
+    prob_map_gen="8",
     prod_cargo_types_with_output_ratios=[
         ("NGAS", 40),
         ("COND", 8),

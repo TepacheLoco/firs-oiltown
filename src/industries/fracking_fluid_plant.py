@@ -12,10 +12,6 @@ industry = IndustrySecondary(
     map_colour="143",
     colour_scheme_name="scheme_3_hendrix",
     location_checks=dict(
-        near_at_least_one_of_these_keystone_industries=[
-            ["chemical_plant"],
-            96,
-        ],
         same_type_distance=72,
     ),
     name="string(STR_IND_FRACKING_FLUID_PLANT)",
@@ -35,6 +31,8 @@ industry.get_graphics_file_path = _reuse_tyre_plant_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     prod_cargo_types_with_output_ratios=[("FFLD", 8)],
     require_all_inputs_for_production=True,
 )

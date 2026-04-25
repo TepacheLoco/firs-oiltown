@@ -16,7 +16,6 @@ industry = IndustrySecondary(
     name="string(STR_IND_LUBRICANTS_PLANT)",
     nearby_station_name="string(STR_STATION_LUBRICANTS_PLANT)",
     location_checks=dict(
-        near_at_least_one_of_these_keystone_industries=[["oil_refinery"], 96],
         same_type_distance=96,
     ),
     sprites_complete=True,
@@ -32,6 +31,8 @@ industry.get_graphics_file_path = _reuse_oil_refinery_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     prod_cargo_types_with_output_ratios=[("LUBR", 8)],
     require_all_inputs_for_production=True,
 )

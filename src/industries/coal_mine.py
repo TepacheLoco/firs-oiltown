@@ -246,4 +246,6 @@ industry.add_industry_layout(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="8",
+    prob_map_gen="10",
 )

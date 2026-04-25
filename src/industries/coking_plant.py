@@ -9,10 +9,6 @@ industry = IndustrySecondary(
     map_colour="183",
     colour_scheme_name="scheme_9_shania",
     location_checks=dict(
-        near_at_least_one_of_these_keystone_industries=[
-            ["coal_mine"],
-            72,
-        ],
         same_type_distance=72,
     ),
     name="string(STR_IND_COKING_PLANT)",
@@ -32,6 +28,8 @@ industry.get_graphics_file_path = _reuse_coke_oven_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="2",
+    prob_map_gen="3",
     prod_cargo_types_with_output_ratios=[
         ("COKE", 6),
         ("CTAR", 1),

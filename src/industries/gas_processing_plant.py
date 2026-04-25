@@ -27,6 +27,8 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="2",
+    prob_map_gen="3",
 )
 
 industry.add_tile(

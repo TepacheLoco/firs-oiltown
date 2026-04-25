@@ -116,6 +116,8 @@ industry.add_industry_layout(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="14",
+    prob_map_gen="14",
     prod_cargo_types_with_multipliers=[
         ("OIL_", 29),
         ("PASS", 4),

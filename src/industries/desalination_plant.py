@@ -34,6 +34,8 @@ industry.get_graphics_file_path = _reuse_oil_trading_port_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     prod_cargo_types_with_multipliers=[("WATR", 16)],
 )
 

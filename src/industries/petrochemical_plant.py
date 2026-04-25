@@ -10,7 +10,6 @@ industry = IndustrySecondary(
     colour_scheme_name="scheme_13_whitney",
     name="string(STR_IND_PETROCHEMICAL_PLANT)",
     location_checks=dict(
-        near_at_least_one_of_these_keystone_industries=[["oil_refinery"], 96],
         same_type_distance=96,
     ),
     nearby_station_name="string(STR_STATION_PETROCHEMICAL_PLANT)",
@@ -29,6 +28,8 @@ industry.get_graphics_file_path = _reuse_copper_smelter_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     prod_cargo_types_with_output_ratios=[
         ("ETHY", 5),
         ("CHEM", 3),

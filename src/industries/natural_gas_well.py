@@ -22,6 +22,8 @@ industry = IndustryPrimaryExtractive(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="12",
+    prob_map_gen="14",
 )
 
 

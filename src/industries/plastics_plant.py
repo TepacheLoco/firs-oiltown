@@ -25,6 +25,8 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     accept_cargos_with_input_ratios=[
         ("ETHY", 5),
         ("CHEM", 3),

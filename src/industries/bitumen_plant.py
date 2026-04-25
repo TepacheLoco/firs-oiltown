@@ -12,10 +12,6 @@ industry = IndustrySecondary(
     map_colour="119",
     colour_scheme_name="scheme_10_wyclef",
     location_checks=dict(
-        near_at_least_one_of_these_keystone_industries=[
-            ["oil_refinery"],
-            96,
-        ],
         same_type_distance=72,
     ),
     name="string(STR_IND_BITUMEN_PLANT)",
@@ -35,6 +31,8 @@ industry.get_graphics_file_path = _reuse_lime_kiln_graphics
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="1",
+    prob_map_gen="2",
     prod_cargo_types_with_output_ratios=[("BITU", 8)],
     require_all_inputs_for_production=True,
 )

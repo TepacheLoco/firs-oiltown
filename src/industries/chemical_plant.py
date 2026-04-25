@@ -51,6 +51,8 @@ industry.enable_in_economy(
 
 industry.enable_in_economy(
     "OIL_TOWN",
+    prob_in_game="2",
+    prob_map_gen="3",
     accept_cargos_with_input_ratios=[
         ("ETHY", 3),
         ("SULP", 3),
