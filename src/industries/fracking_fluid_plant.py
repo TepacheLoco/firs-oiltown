@@ -17,6 +17,7 @@ industry = IndustrySecondary(
     name="string(STR_IND_FRACKING_FLUID_PLANT)",
     nearby_station_name="string(STR_STATION_FRACKING_FLUID_PLANT)",
     fund_cost_multiplier="160",
+    intro_year=1975,
     pollution_and_squalor_factor=1,
     sprites_complete=True,
     animated_tiles_fixed=True,

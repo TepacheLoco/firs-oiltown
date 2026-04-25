@@ -1,0 +1,44 @@
+<!--! CB 0x39: replicates engine time-decay payment, then multiplies by a two-wave market phase. Temp registers 100..113. -->
+switch(FEAT_CARGOS, SELF, oil_market_profit_calc_${cargo.id}_${economy.id},
+    [
+        STORE_TEMP(getbits(extra_callback_info2, 0, 16), 100),
+        STORE_TEMP(getbits(extra_callback_info2, 24, 8), 101),
+        STORE_TEMP(current_year * 12 + current_month - ${cargo.market_lag_months}, 102),
+        STORE_TEMP(LOAD_TEMP(102) % 64, 103),
+        STORE_TEMP((LOAD_TEMP(102) / 3) % 64, 104),
+        STORE_TEMP(
+            LOAD_TEMP(103) < 32
+                ? LOAD_TEMP(103) * (32 - LOAD_TEMP(103)) * 100 / 256
+                : 0 - ((LOAD_TEMP(103) - 32) * (64 - LOAD_TEMP(103)) * 100 / 256),
+            105),
+        STORE_TEMP(
+            LOAD_TEMP(104) < 32
+                ? LOAD_TEMP(104) * (32 - LOAD_TEMP(104)) * 100 / 256
+                : 0 - ((LOAD_TEMP(104) - 32) * (64 - LOAD_TEMP(104)) * 100 / 256),
+            106),
+        STORE_TEMP(LOAD_TEMP(105) + LOAD_TEMP(106) / 2, 107),
+        STORE_TEMP(
+            LOAD_TEMP(101) > ${cargo.penalty_lowerbound}
+                ? LOAD_TEMP(101) - ${cargo.penalty_lowerbound}
+                : 0,
+            108),
+        STORE_TEMP(
+            LOAD_TEMP(101) > ${cargo.penalty_lowerbound} + ${cargo.single_penalty_length}
+                ? LOAD_TEMP(101) - ${cargo.penalty_lowerbound} - ${cargo.single_penalty_length}
+                : 0,
+            109),
+        STORE_TEMP(
+            (255 - LOAD_TEMP(108) - LOAD_TEMP(109)) < 31
+                ? 31
+                : (255 - LOAD_TEMP(108) - LOAD_TEMP(109)),
+            110),
+        STORE_TEMP(LOAD_TEMP(100) * LOAD_TEMP(110) / 256, 111),
+        <!--! market_volatility is rendered times 100 to permit fractional tiers (e.g. 1.5 -> 150) -->
+        STORE_TEMP(1000 + LOAD_TEMP(107) * ${int(cargo.market_volatility * 100)} / 100, 112),
+        STORE_TEMP(LOAD_TEMP(111) * LOAD_TEMP(112) / 1000, 113),
+        LOAD_TEMP(113) > 12748
+            ? 12748
+            : (LOAD_TEMP(113) < 0 - 12748 ? 0 - 12748 : LOAD_TEMP(113))
+    ]) {
+    return;
+}

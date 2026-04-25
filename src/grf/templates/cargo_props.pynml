@@ -24,6 +24,9 @@ item(FEAT_CARGOS, ${cargo.id}_${economy.id}, ${cargo.get_numeric_id(economy)}) {
         number: ${cargo.get_numeric_id(economy)};
     }
     graphics {
+        <tal:market_hook condition="cargo.market_volatility is not None">
+            profit: oil_market_profit_calc_${cargo.id}_${economy.id};
+        </tal:market_hook>
         cargoicon_${cargo.id};
     }
 }

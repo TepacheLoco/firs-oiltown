@@ -73,6 +73,27 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - No changes to the upstream FIRS build system, NML templates, or Game Script other than adding economy data.
 
 
+## 2026-04-25 — OilTown 5.2.0.3
+
+### Oil-family cargo price fluctuation
+
+- **`src/cargo.py`** — added optional `market_volatility` and `market_lag_months` kwargs on the `Cargo` base class. Cargoes with `market_volatility` set opt in to a fluctuating per-unit payment via the NewGRF cargo profit callback (CB 0x39). `market_lag_months` shifts that cargo's phase backwards in in-game time so refined products track upstream prices with a delay.
+- **`src/cargos/`** — opted 14 oil-family cargoes into market fluctuation in tiered amplitudes and lags:
+  - Tier 1 (volatility 1.5, lag 0): `oil`
+  - Tier 2 (volatility 0.75, lag 3 months): `heavy_oil`, `light_oil`
+  - Tier 3 (volatility 0.5, lag 6 months): `naphtha`, `condensate`, `raw_gas`
+  - Tier 4 (volatility 0.25, lag 9 months): `petrol`, `lng`, `lpg`, `refinery_gas`, `ethylene`, `bitumen`, `lubricants`
+  - Tier 5 (volatility 0.125, lag 12 months): `plastics`
+- **`src/grf/templates/oil_market.pynml`** (new) — emits a per-(cargo, economy) profit-callback switch. Replicates OpenTTD's default time-decay payment formula in NML (distance × time_factor with the standard 31..255 piecewise envelope), then multiplies by a market modifier `(1000 + phase × volatility) / 1000`. The phase is the sum of two parabolic-sine waves of in-game time: a fast wave (period 64 months ≈ 5.3 years) and a half-amplitude slow wave (period 192 months = 16 years). Output clamped to [-12748, 12748] per the callback spec. Theoretical max payment for crude oil is ~122.5% of base; for plastics (lowest tier) it is ~101.9%.
+- **`src/grf/templates/cargos.pynml`** — emits the new market switch at top level for any cargo with `market_volatility` set, then includes the standard cargo_props (NML disallows switch blocks inside `if (economy==N)` blocks, so the switches live above the items).
+- **`src/grf/templates/cargo_props.pynml`** — graphics block now includes a `profit:` hook pointing at the market switch when the cargo opts in. NML auto-emits the corresponding callback-flags property.
+
+### Fracking gated to the modern era
+
+- **`src/industries/fracking_well.py`** — `intro_year=1975`.
+- **`src/industries/fracking_fluid_plant.py`** — `intro_year=1975`.
+
+
 ## 2026-04-21 — OilTown 5.2.0.2
 
 ### Town sinks for food and treated water

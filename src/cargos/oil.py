@@ -18,4 +18,5 @@ cargo = Cargo(
     capacity_multiplier="1",
     icon_indices=(3, 0),
     sprites_complete=True,
+    market_volatility=1.5,
 )

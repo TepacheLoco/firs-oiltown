@@ -18,4 +18,6 @@ cargo = Cargo(
     price_factor=105,
     icon_indices=(6, 4),
     sprites_complete=True,
+    market_volatility=0.125,
+    market_lag_months=12,
 )

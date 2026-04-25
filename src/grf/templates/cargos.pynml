@@ -18,6 +18,13 @@ disable_item(FEAT_CARGOS, 31, 31);
     }
 
 
+    <!--! profit callback switches must live outside if (economy==N) blocks -->
+    <tal:economies repeat="economy firs.economy_manager">
+        <tal:cargo_props condition="cargo.id in economy.cargo_ids and cargo.market_volatility is not None">
+            <tal:include metal:use-macro="load: oil_market.pynml" />
+        </tal:cargo_props>
+    </tal:economies>
+
     <tal:economies repeat="economy firs.economy_manager">
         <tal:cargo_props condition="cargo.id in economy.cargo_ids">
             if (economy==${economy.numeric_id}) {

@@ -35,6 +35,10 @@ class Cargo(object):
         self.town_growth_multiplier = "1.0"
         # vulcan properties are optional, and are used by FIRS GS
         self.vulcan_town_effect = kwargs.get("vulcan_town_effect", None)
+        # if set, enables fluctuating payment via CB 0x39; value is per-cargo amplitude on the shared market phase
+        self.market_volatility = kwargs.get("market_volatility", None)
+        # months of phase delay behind crude — refined/downstream products track upstream prices with a lag
+        self.market_lag_months = kwargs.get("market_lag_months", 0)
         # not nml properties
         # suppress nml warnings about animated pixels
         self.allow_animated_pixels = kwargs.get("allow_animated_pixels", False)

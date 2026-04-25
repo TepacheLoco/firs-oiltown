@@ -11,6 +11,7 @@ industry = IndustrySecondary(
     name="string(STR_IND_FRACKING_WELL)",
     fund_cost_multiplier="250",
     nearby_station_name="string(STR_STATION_FRACKING_WELL)",
+    intro_year=1975,
     pollution_and_squalor_factor=2,
     provides_snow=True,
     sprites_complete=True,
