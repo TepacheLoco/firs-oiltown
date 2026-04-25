@@ -93,6 +93,25 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - **`src/industries/fracking_well.py`** — `intro_year=1975`.
 - **`src/industries/fracking_fluid_plant.py`** — `intro_year=1975`.
 
+### Oil rig intro brought forward
+
+- **`src/industries/oil_rig.py`** — `intro_year` 1967 → 1947.
+
+### Industry probability rework
+
+- Every OIL_TOWN industry now declares explicit `prob_in_game` / `prob_map_gen` (no more inherited defaults). Primaries weighted heaviest (oil_wells 14/16, oil_rig 14/14, natural_gas_well 12/14, coal_mine 8/10, fracking_well 6/8); gated secondaries 1/2; oil_refinery 6/8 → 4/5. Touches `bitumen_plant.py`, `chemical_plant.py`, `coal_mine.py`, `coking_plant.py`, `desalination_plant.py`, `fertiliser_plant.py`, `fracking_fluid_plant.py`, `fracking_well.py`, `gas_processing_plant.py`, `lubricants_plant.py`, `natural_gas_well.py`, `oil_refinery.py`, `oil_rig.py`, `oil_wells.py`, `petrochemical_plant.py`, `petroleum_fuels_depot.py`, `plastics_plant.py`, `supply_yard.py`.
+- Removed `near_at_least_one_of_these_keystone_industries` location checks from `bitumen_plant.py`, `coking_plant.py`, `fracking_fluid_plant.py`, `lubricants_plant.py`, `petrochemical_plant.py`, `petroleum_fuels_depot.py` — gated secondaries can now place anywhere.
+
+### Compact oil and natural gas well layouts
+
+- **`src/industries/oil_wells.py`** — four layouts redesigned. Footprints 6×8 / 7×9 / 4×7 / 7×9 → 4×4 / 3×4 / 3×3 / 4×5. Pump count 7/8/6/10 → 4/4/3/5.
+- **`src/industries/natural_gas_well.py`** — three layouts redesigned. Footprints 6×8 / 7×9 / 4×7 → 4×4 / 3×4 / 3×4. Pump count 7/7/6 → 4/3/4. Layout 1's 2×2 building cluster preserved.
+
+### Version & in-game description
+
+- **`src/grf/templates/lang_file.pylng`** — `STR_GRF_NAME_AND_VERSION` bumped to 5.2.0.3.
+- **`src/grf/lang/english.toml`** — rewrote `STR_PARAM_DESC_ECONOMIES` to cover gated secondaries, town sinks, Trading Port → food, fluctuating oil prices, and the 1975 fracking unlock.
+
 
 ## 2026-04-21 — OilTown 5.2.0.2
 

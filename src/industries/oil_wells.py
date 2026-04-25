@@ -83,27 +83,20 @@ industry.add_industry_layout(
     id="oil_wells_industry_layout_1",
     layout=[
         (0, 0, "oil_wells_spritelayout_pump"),
-        (0, 7, "oil_wells_spritelayout_pump"),
-        (1, 4, "oil_wells_spritelayout_pump"),
-        (2, 1, "oil_wells_spritelayout_pump"),
-        (3, 5, "oil_wells_spritelayout_building"),
-        (4, 8, "oil_wells_spritelayout_pump"),
-        (5, 1, "oil_wells_spritelayout_pump"),
-        (5, 4, "oil_wells_spritelayout_pump"),
+        (0, 3, "oil_wells_spritelayout_pump"),
+        (1, 1, "oil_wells_spritelayout_building"),
+        (3, 0, "oil_wells_spritelayout_pump"),
+        (3, 3, "oil_wells_spritelayout_pump"),
     ],
 )
 industry.add_industry_layout(
     id="oil_wells_industry_layout_2",
     layout=[
         (0, 0, "oil_wells_spritelayout_pump"),
-        (0, 4, "oil_wells_spritelayout_pump"),
-        (1, 4, "oil_wells_spritelayout_pump"),
-        (2, 8, "oil_wells_spritelayout_pump"),
-        (4, 4, "oil_wells_spritelayout_building"),
-        (4, 8, "oil_wells_spritelayout_pump"),
-        (5, 2, "oil_wells_spritelayout_pump"),
-        (6, 2, "oil_wells_spritelayout_pump"),
-        (6, 4, "oil_wells_spritelayout_pump"),
+        (0, 3, "oil_wells_spritelayout_pump"),
+        (1, 1, "oil_wells_spritelayout_building"),
+        (2, 0, "oil_wells_spritelayout_pump"),
+        (2, 3, "oil_wells_spritelayout_pump"),
     ],
 )
 industry.add_industry_layout(
@@ -111,27 +104,19 @@ industry.add_industry_layout(
     layout=[
         (0, 0, "oil_wells_spritelayout_pump"),
         (0, 2, "oil_wells_spritelayout_pump"),
-        (1, 4, "oil_wells_spritelayout_pump"),
-        (1, 6, "oil_wells_spritelayout_pump"),
-        (2, 0, "oil_wells_spritelayout_building"),
-        (3, 2, "oil_wells_spritelayout_pump"),
-        (3, 4, "oil_wells_spritelayout_pump"),
+        (1, 1, "oil_wells_spritelayout_building"),
+        (2, 0, "oil_wells_spritelayout_pump"),
     ],
 )
 industry.add_industry_layout(
     id="oil_wells_industry_layout_4",
     layout=[
         (0, 0, "oil_wells_spritelayout_pump"),
+        (0, 2, "oil_wells_spritelayout_pump"),
         (0, 4, "oil_wells_spritelayout_pump"),
-        (0, 6, "oil_wells_spritelayout_pump"),
-        (1, 2, "oil_wells_spritelayout_pump"),
-        (1, 8, "oil_wells_spritelayout_building"),
-        (2, 0, "oil_wells_spritelayout_pump"),
-        (2, 2, "oil_wells_spritelayout_pump"),
-        (3, 1, "oil_wells_spritelayout_pump"),
-        (5, 0, "oil_wells_spritelayout_pump"),
-        (5, 2, "oil_wells_spritelayout_pump"),
-        (6, 0, "oil_wells_spritelayout_pump"),
+        (1, 1, "oil_wells_spritelayout_building"),
+        (3, 0, "oil_wells_spritelayout_pump"),
+        (3, 4, "oil_wells_spritelayout_pump"),
     ],
 )
 

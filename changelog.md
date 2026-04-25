@@ -2,6 +2,36 @@ Changelog
 =========
 
 --------------
+5.2.0.3 Release (OilTown)
+--------------
+
+
+*Oil markets fluctuate*
+
+- Crude oil and 13 downstream cargoes now pay a fluctuating per-unit price that drifts up and down over in-game time. The wave is the sum of a fast cycle (~5.3 years) and a slow cycle (~16 years), so prices wander rather than tick predictably.
+- Volatility tiered by how far down the chain a cargo sits: crude swings most (peaks ~+22%), then heavy/light oil, then naphtha/condensate/raw gas, then petrol/LNG/LPG/refinery gas/ethylene/bitumen/lubricants, then plastics (peaks ~+2%). Each refined product also lags upstream prices by 3–12 months, so spikes propagate through the chain.
+- Late deliveries still pay less — the standard time-decay penalty is preserved on top of the market modifier.
+
+*Industry placement & probability rework*
+
+- Every OIL_TOWN industry now declares explicit weights for in-game opening and map generation. Primaries dominate the map; gated secondaries are rarer and need to be funded or chained off existing industries.
+- Removed "must build near the oil refinery / chemical plant / coal mine" location checks from the gated secondaries (Bitumen, Coking, Fracking Fluid, Lubricants, Cracking, Petroleum Refinery). They can now place anywhere on the map.
+
+*Era-gated industries*
+
+- Oil Rig now intros in 1947 (was 1967) — coastal oil available from the early-game era.
+- Fracking Well and Fracking Fluid Plant unlock in 1975 — fracking is a modern-era industry only.
+
+*Compact oil and natural gas wells*
+
+- Oil and natural gas well industry layouts redesigned with much tighter footprints (down from ~7×9 to ~4×4) and roughly half the pump-jack tiles. Easier to fit on awkward terrain, and visually less of a forest of bobbing pumpjacks.
+
+*In-game description rewritten*
+
+- The economy parameter description on the NewGRF settings screen now covers all the OilTown additions: gated secondaries, dormant-smoke visual cue, full town-sink set, Trading Port → food, fluctuating oil prices, and the 1975 fracking unlock.
+
+
+--------------
 5.2.0.2 Release (OilTown)
 --------------
 

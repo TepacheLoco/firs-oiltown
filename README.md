@@ -14,45 +14,68 @@ This fork targets a single climate (temperate) and a single economy — everythi
 
 ```
 Tier 1  Extraction (primary)
-  Offshore Oil Rig      → crude oil (+ pax byproduct)
+  Offshore Oil Rig      → crude oil (+ pax byproduct)             [from 1947]
   Onshore Oil Wells     → crude oil (+ small raw gas)
   Natural Gas Well      → raw gas
   Coal Mine             → coal
   Desalination Plant    → treated water          [coastal]
-  Fracking Well         → raw gas + condensate   [requires fracking fluid]
+  Fracking Well         → raw gas + condensate   [requires fracking fluid; from 1975]
 
 Tier 2  Primary processing
-  Oil Refinery          → crude oil (+ condensate, optional)
+  Oil Refinery          → crude oil OR condensate (either alone yields full production)
                         → light oil + heavy oil + naphtha + refinery gas
-  Gas Processing Plant  → raw gas
+  Gas Processing Plant  → raw gas OR refinery gas (either alone yields full production)
                         → LNG + LPG + sulphur (+ a little condensate)
   Coking Plant          → coal → coke + coal tar
 
 Tier 3  Petrochemistry
   Cracking Plant        → naphtha + refinery gas + coal tar → ethylene + chemicals
-  Chemical Plant        → ethylene + sulphur + treated water → chemicals
-  Fracking Fluid Plant  → chemicals + treated water → fracking fluid
+  Chemical Plant        → ethylene + sulphur + treated water → chemicals    [gated]
+  Fracking Fluid Plant  → chemicals + treated water → fracking fluid        [gated, from 1975]
 
 Tier 4  Processing
-  Lubricants Plant      → heavy oil + LNG → lubricants
-  Bitumen Plant         → heavy oil + coke → bitumen
-  Plastics Plant        → ethylene + chemicals → plastics
-  Fertiliser Plant      → LNG + sulphur + chemicals → fertiliser
-  Petroleum Refinery    → light oil + chemicals + lubricants → petroleum fuels
+  Lubricants Plant      → heavy oil + LNG → lubricants                      [gated]
+  Bitumen Plant         → heavy oil + coke → bitumen                        [gated]
+  Plastics Plant        → ethylene + chemicals → plastics                   [gated]
+  Fertiliser Plant      → LNG + sulphur + chemicals → fertiliser            [gated]
+  Petroleum Refinery    → light oil + chemicals + lubricants → petrol       [gated]
   Engineering Supplies Plant
-                        → lubricants + bitumen + coke + ethylene + coal tar
-                        → engineering supplies
+                        → lubricants + bitumen + coke + plastics + coal tar
+                        → engineering supplies                              [gated]
 
-Tier 5  Exports
-  Fuel Terminal         [coastal] accepts crude / light / heavy oil, petrol, LNG, LPG
-  Trading Port          [coastal] accepts chem + plastics + fert + bitumen + coal + coke + lubricants → food
-  Power Station         → accepts coal / heavy oil / LNG  [town-adjacent black hole]
-  Water Tower           [in-town] accepts treated water (town delivery sink)
+Tier 5  Exports & town sinks
+  Fuel Terminal         [coastal]  accepts crude / light / heavy oil, petrol, LNG, LPG
+  Trading Port          [coastal]  accepts chemicals + plastics + fertiliser + bitumen + coal + coke + lubricants → food
+  Power Station         [town-adjacent]  accepts coal / heavy oil / LNG
+  Water Tower           [in-town]  accepts treated water (drives town happiness)
+  Petrol Pump           [in-town]  accepts petrol
+  Hotel                 [in-town]  accepts food + treated water
+  General Store         [in-town]  accepts food + treated water
 ```
+
+## Gated secondaries
+
+Industries marked `[gated]` will only produce output when **every** required input has been delivered within the rolling 27-cycle (~3 minute) supply window. Miss one input, and the entire industry stops producing — and visibly stops smoking — until the missing cargo resumes flowing.
+
+While a gated industry is blocked, in-bound cargo is buffered up to 32 units per input rather than consumed, so the truck that completes the set kicks off a real batch of output. The industry window's extra-text alternates between "To resume production, supply all required cargos at least once every three minutes" (blocked) and "To maintain production, …" (running).
+
+## Fluctuating oil markets
+
+Crude oil and 13 downstream cargoes pay a fluctuating per-unit price that drifts up and down over in-game time — a fast cycle (~5.3 years) layered on top of a slow cycle (~16 years). Volatility is tiered by how far down the chain a cargo sits:
+
+| Tier | Volatility | Lag      | Cargoes |
+|------|-----------:|---------:|---------|
+| 1    |       1.5  |   0 mo   | crude oil |
+| 2    |      0.75  |   3 mo   | heavy oil, light oil |
+| 3    |       0.5  |   6 mo   | naphtha, condensate, raw gas |
+| 4    |      0.25  |   9 mo   | petrol, LNG, LPG, refinery gas, ethylene, bitumen, lubricants |
+| 5    |     0.125  |  12 mo   | plastics |
+
+Crude can swing up to ~+22% above its base payment; plastics ~+2%. The lag means refined-product spikes trail upstream spikes, so a crude price boom rolls through the chain over the following year. The standard time-decay penalty for slow deliveries still applies on top.
 
 ## Feedback loop
 
-Delivering **engineering supplies** to any tier-1 extractive (coal mine, oil wells, natural gas well, oil rig) boosts its output by ~+40%. This makes the engineering-supplies chain self-reinforcing: more crude / gas / coal flows back into every downstream industry.
+Delivering **engineering supplies** to any tier-1 extractive (coal mine, oil wells, natural gas well, oil rig, desalination plant, fracking well) boosts its output by ~+40%. This makes the engineering-supplies chain self-reinforcing: more crude / gas / coal / water flows back into every downstream industry.
 
 Delivering **fracking fluid** to a fracking well is *required* — unlike the other extraction sites, a fracking well with no fluid delivery produces nothing.
 

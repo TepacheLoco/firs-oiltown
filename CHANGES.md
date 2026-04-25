@@ -93,6 +93,25 @@ Fork started from FIRS 5.2.0. Target: single-economy (`OIL_TOWN`), single-climat
 - **`src/industries/fracking_well.py`** — `intro_year=1975`.
 - **`src/industries/fracking_fluid_plant.py`** — `intro_year=1975`.
 
+### Oil rig intro brought forward
+
+- **`src/industries/oil_rig.py`** — `intro_year=1967` → `1947`. Coastal oil rigs are available from the early-game era now.
+
+### Industry probability rework
+
+- Every OIL_TOWN industry now declares explicit `prob_in_game` / `prob_map_gen` in its `enable_in_economy("OIL_TOWN", ...)` call instead of inheriting base-class defaults. Primaries weighted heaviest (oil_wells 14/16, oil_rig 14/14, natural_gas_well 12/14, coal_mine 8/10, fracking_well 6/8); gated secondaries set to 1/2; oil_refinery dropped from 6/8 → 4/5. Affected files: `bitumen_plant.py`, `chemical_plant.py`, `coal_mine.py`, `coking_plant.py`, `desalination_plant.py`, `fertiliser_plant.py`, `fracking_fluid_plant.py`, `fracking_well.py`, `gas_processing_plant.py`, `lubricants_plant.py`, `natural_gas_well.py`, `oil_refinery.py`, `oil_rig.py`, `oil_wells.py`, `petrochemical_plant.py`, `petroleum_fuels_depot.py`, `plastics_plant.py`, `supply_yard.py`.
+- **`src/industries/bitumen_plant.py`**, **`coking_plant.py`**, **`fracking_fluid_plant.py`**, **`lubricants_plant.py`**, **`petrochemical_plant.py`**, **`petroleum_fuels_depot.py`** — removed `near_at_least_one_of_these_keystone_industries` location checks. Was previously preventing maps from generating these gated secondaries when the keystone (oil refinery / chemical plant / coal mine) hadn't placed within range; OIL_TOWN now lets them place anywhere.
+
+### Compact oil and natural gas well layouts
+
+- **`src/industries/oil_wells.py`** — all four industry layouts redesigned. Footprints reduced from 6×8 / 7×9 / 4×7 / 7×9 down to 4×4 / 3×4 / 3×3 / 4×5. Pump-jack tile count roughly halved (7→4, 8→4, 6→3, 10→5). Building tiles preserved.
+- **`src/industries/natural_gas_well.py`** — all three layouts redesigned. Footprints reduced from 6×8 / 7×9 / 4×7 down to 4×4 / 3×4 / 3×4. Pump count reduced (7→4, 7→3, 6→4) while preserving the central 2×2 building cluster on layout 1.
+
+### Version & in-game description
+
+- **`src/grf/templates/lang_file.pylng`** — `STR_GRF_NAME_AND_VERSION` bumped to `5.2.0.3`.
+- **`src/grf/lang/english.toml`** — rewrote `STR_PARAM_DESC_ECONOMIES` to cover gated secondaries, the dormant-smoke visual cue, the full town-sink set (water tower, power station, petrol pump, hotel, general store), Trading Port → food, fluctuating oil prices, and the 1975 fracking unlock.
+
 
 ## 2026-04-21 — OilTown 5.2.0.2
 
